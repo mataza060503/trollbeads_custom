@@ -1,0 +1,378 @@
+.header {
+  padding: 20px 0px;
+  &-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 0px 40px;
+  }
+  &-logo {
+    width: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & img {
+      width: 170px;
+      height: 37px;
+      z-index: 5;
+    }
+  }
+  &-navigation {
+    display: flex;
+    align-items: center;
+    flex: 1 1 auto;
+    margin-left: 10px;
+    & ul {
+      text-rendering: optimizeLegibility;
+    }
+  }
+  &-functions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+  }
+  &-link {
+    width: 28px;
+    height: 28px;
+    margin: 7.5px 12px;
+    cursor: pointer;
+  }
+}
+
+::ng-deep .offcanvas.offcanvas-top {
+  height: fit-content !important;
+}
+
+
+
+.search-container {
+  display: flex;
+  align-items: center;
+  padding: 20px 40px;
+  input {
+    outline: none;
+    border: none;
+  }
+  button {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+
+.icon {
+  display: none;
+}
+
+.my-header-link {
+  width: 28px;
+  height: 28px;
+  padding: 7.5px 12px;
+}
+.menu {
+  display: flex; 
+  flex-wrap: wrap;
+  list-style-type: none; 
+}
+
+.item {
+  white-space: nowrap; 
+  width: fit-content;
+  &:hover  .dropdown{
+    display: block;
+  }
+  z-index: 5;
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  text-align: left;
+  left: 0;
+  background-color: white;
+  width: 100vw;
+  padding: 39px 0px;
+  box-shadow: #00000017 0px 10px 20px 0px;
+  z-index: 4;
+  &-container {
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    margin: 0px 40px;
+    margin-left: calc(40px - 22px);
+  }
+  &-item {
+    max-width: 241px;
+    min-width: 117px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-left: 22px;
+  }
+  &-image {
+    width: 100%;
+    max-height: 101px;
+    padding-top: 50%;
+    background-position: center;
+    background-size: cover;
+  }
+  &-title {
+    font-family: var(--font);
+    font-weight: 700;
+    font-size: 14.4px;
+    letter-spacing: 4.32px;
+    line-height: 25.92px;
+    padding: 4px 0px;
+    text-align: left;
+    text-transform: uppercase;
+    white-space: normal;
+    color: black;
+  }
+  &-menu {
+    &-item {
+      font-size: 17px;
+      letter-spacing: 0.45px;
+      line-height: 25.5px;
+      padding: 4px 0px;
+      text-align: left;
+      color: black;
+      & a {
+        color: black;
+      }
+    }
+  }
+}
+
+.heart {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #1c1d1d;
+  & div {
+    position: absolute;
+    right: -2px;
+    bottom: 0;
+    font-size: 10px;
+    font-family: var(--font);
+  }
+  & span {
+    font-size: 28px;
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+.my-offcanvas {
+  &-btn {
+    width: 28px;
+    height: 28px;
+    margin: 10px 0px;
+    & svg {
+      width: 25px;
+      height: 25px;
+    }
+  }
+  &-header {
+    padding: 0px 20px;
+    display: flex;
+    justify-content: end;
+  }
+  &-body {
+    margin: 0px 20px;
+    overflow-y: scroll; 
+    max-height: calc(100vh - 150px);
+    transition: width 0.3s ease, margin-bottom 0.3s ease;
+    &-text {
+      font-size:16.56px;
+      letter-spacing:0.414px;
+      line-height:23.184px;
+      text-align:left;
+    }
+    &-item {
+      display: flex;
+      flex-direction: column;
+      &-function {
+        display: flex;
+        align-items: center;
+        padding: 12px 0px;
+        gap: 10px;
+        & svg {
+          width: 20px;
+          height: 20px;
+        }
+      }
+      &-dropdown {
+        display: none;
+        &-title {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          cursor: pointer;
+        }
+        &-toggle {
+          width: 28px;
+          height: 28px;
+          border-radius: 100rem;
+          border: solid 1px var(--neutral-grey-2);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-left: 15px;
+          cursor: pointer;
+        }
+        &-sub {
+          display: none;
+          padding-left: 20px;
+          border-left: solid 1px black;
+          & li {
+            margin: 7.5px;
+          }
+        }
+      }
+      &-title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      & a {
+        border: none;
+      }
+      & a:hover {
+        border: none;
+      }
+      & svg {
+        width: 10px;
+        height: 60%;
+      }
+      &-toggle {
+        
+        height: calc(75.5px * .6);
+        border-left: solid 1px var(--neutral-grey-2);
+        display: flex;
+        padding-left: 30px;
+        align-items: center;  
+        cursor: pointer;
+        & svg {
+          width: 10px;
+          height: 10px;
+        }
+      }
+      &-icon {
+        width: 28px;
+        height: 28px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+  &-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 25px 10px 20px;
+    &-item {
+      & a {
+        
+        & svg {
+          width: 20px;
+          height: 20px;
+          margin: 12px;
+        }
+      }
+    }
+  }
+}
+
+.open {
+  display: block;
+}
+
+.rotate {
+  rotate: 180deg;
+}
+
+@media screen and (max-width: 769px) {
+  .header {
+    padding: 7.5px 0px;
+    &-logo {
+      width: 160px;
+      & img {
+        width: 150px;
+        height: 32.5px;
+      }
+    }
+    &-navigation {
+      display: none;
+    }
+    &-container {
+      padding: 0px 20px;
+    }
+  }
+
+  #account {
+    display: none;
+  }
+
+  .icon {
+    display: block;
+  }
+}
+
+.my-offcanvas-body-item-dropdown {
+  display: none;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+}
+
+.my-offcanvas-body-item-dropdown.open {
+  display: block;
+  animation-name: slideDown;
+}
+
+.my-offcanvas-body-item-dropdown-sub {
+  display: none;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+}
+
+.my-offcanvas-body-item-dropdown-sub.open {
+  display: block;
+  animation-name: slideDown;
+}
+
+.my-offcanvas-body-item {
+  transition: margin 0.3s ease;
+}
+
+
+

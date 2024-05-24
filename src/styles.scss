@@ -1,1 +1,95 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import 'bootstrap/scss/bootstrap';
+:root {
+  --font: "Roboto", sans-serif;
+  --primary-color-1: #000000;
+  --primary-color-2: #FFFFFF;
+  --secondary-color-1: #EC2F52;
+  --neutral-grey: #B2B2B2;
+  --neutral-grey-2: #E8E8E1;
+}
+
+body {
+  font-family: var(--font);
+  color: #1c1d1d;
+}
+
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+.text {
+  font-family: var(--font);
+  color: #1c1d1d;
+  &-navigation {
+    display: inline-block;
+    font-size: 17px;
+    letter-spacing: 3.4px;
+    line-height: 23.8px;
+    text-align: left;
+    text-transform: uppercase;
+    margin: 0px 15px;
+    padding: 7.5px 0px;
+    border-bottom: solid 2px transparent;
+    &:hover {
+      border-bottom: solid 2px  var(--primary-color-1);
+    }
+  }
+  &-header {
+    font-size: 30.6px;
+    line-height: 30.6px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  &-body {
+    &-content {
+      font-size: 18px;
+      letter-spacing: 0.45px;
+      line-height: 25.2px
+    }
+  }
+  &-product {
+    &-title {
+      font-size: 16px;
+      letter-spacing: 3.2px;
+      line-height: 20.8px;
+      text-transform: uppercase;
+      text-align: center
+    }
+    &-price {
+      font-size: 15.3px;
+      letter-spacing: 0.45px;
+      line-height: 19.89px;
+      text-align: center
+    }
+  }
+}
+
+ul, li {
+  margin: 0px;
+  padding: 0px;
+}
+
+button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.offcanvas.offcanvas-end {
+  border-left: none
+}
+
+/* Importing Bootstrap SCSS file. */
+@import "reset.css";

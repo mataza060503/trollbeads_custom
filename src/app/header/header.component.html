@@ -1,0 +1,587 @@
+<ng-template #content let-offcanvas>
+	<div class="my-offcanvas">
+    <div class="my-offcanvas-header">
+      <button type="button" class="my-offcanvas-btn header-link" (click)="offcanvas.dismiss('Cross click')">
+        <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-close" viewBox="0 0 64 64">
+          <path d="M19 17.61l27.12 27.13m0-27.12L19 44.74"
+              fill="none"  
+              stroke="black"  
+              stroke-width="2">
+          </path>
+        </svg>
+      </button>
+    </div>
+    <div class="my-offcanvas-body">
+      <hr>
+      <div class="my-offcanvas-body-item">
+        <a href="#" class="text text-navigation" style="margin: 0px;">bộ sưu tập mới</a>
+      </div>
+      <hr>
+      <div class="my-offcanvas-body-item">
+        <div class="my-offcanvas-body-item-title">
+          <a href="#" class="text text-navigation" style="margin: 0px;">trang sức</a>
+          <div class="my-offcanvas-body-item-toggle" (click)="openDropDown(1)">
+            <div class="my-offcanvas-body-item-icon" [class.rotate]="isOpen[1]">
+              <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16"><path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd"></path></svg>
+            </div>
+          </div>
+        </div>
+        <ul class="my-offcanvas-body-item-dropdown" [class.open]="isOpen[1]">
+          <li class="my-offcanvas-body-item-dropdown-item">
+            <div class="my-offcanvas-body-item-dropdown-title">
+              <a class="dropdown-menu-item" style="margin: 0px;">Hạt bead và mặt dây chuyền</a>
+              <div class="my-offcanvas-body-item-dropdown-toggle" (click)="openSubDropDown(1,1)">
+                <div [class.rotate]="isSubOpen[1][1]">
+                  <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16">
+                    <path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd"></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <ul class="my-offcanvas-body-item-dropdown-sub" [class.open]="isSubOpen[1][1]">
+              <li>
+                <a class="dropdown-menu-item" style="margin: 0px;">Hạt bead</a>
+              </li>
+              <li>
+                <a class="dropdown-menu-item" style="margin: 0px;">Mặt dây chuyền</a>
+              </li>
+              <li>
+                <a class="dropdown-menu-item" style="margin: 0px;">Mặt bông tai</a>
+              </li>
+            </ul>
+          </li>
+          <li class="my-offcanvas-body-item-dropdown-item">
+            <div class="my-offcanvas-body-item-dropdown-title">
+              <a class="dropdown-menu-item" style="margin: 0px;">Loại trang sức</a>
+              <div class="my-offcanvas-body-item-dropdown-toggle" (click)="openSubDropDown(1,2)">
+                <div [class.rotate]="isSubOpen[1][2]">
+                  <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16">
+                    <path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd"></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <ul class="my-offcanvas-body-item-dropdown-sub" [class.open]="isSubOpen[1][2]">
+              <li>
+                <a class="dropdown-menu-item" style="margin: 0px;">Dây chuyền</a>
+              </li>
+              <li>
+                <a class="dropdown-menu-item" style="margin: 0px;">Lắc tay</a>
+              </li>
+              <li>
+                <a class="dropdown-menu-item" style="margin: 0px;">Phụ kiện tóc</a>
+              </li>
+              <li>
+                <a class="dropdown-menu-item" style="margin: 0px;">Bông tai</a>
+              </li>
+              <li>
+                <a class="dropdown-menu-item" style="margin: 0px;">Nhẫn</a>
+              </li>
+            </ul>
+          </li>
+          <li class="my-offcanvas-body-item-dropdown-item">
+            <div class="my-offcanvas-body-item-dropdown-title">
+              <a class="dropdown-menu-item" style="margin: 0px;">Khóa và chặn</a>
+              <div class="my-offcanvas-body-item-dropdown-toggle" (click)="openSubDropDown(1,3)">
+                <div [class.rotate]="isSubOpen[1][3]">
+                  <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16">
+                    <path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd"></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <ul class="my-offcanvas-body-item-dropdown-sub" [class.open]="isSubOpen[1][3]">
+              <li>
+                <a class="dropdown-menu-item" style="margin: 0px;">Chặn</a>
+              </li>
+              <li>
+                <a class="dropdown-menu-item" style="margin: 0px;">Khóa</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <hr>
+      <div class="my-offcanvas-body-item">
+        <div class="my-offcanvas-body-item-title">
+          <a href="#" class="text text-navigation" style="margin: 0px;">quà tặng</a>
+          <div class="my-offcanvas-body-item-toggle" (click)="openDropDown(2)">
+            <div class="my-offcanvas-body-item-icon" [class.rotate]="isOpen[2]">
+              <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16"><path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd"></path></svg>
+            </div>
+          </div>
+        </div>
+        <ul class="my-offcanvas-body-item-dropdown" [class.open]="isOpen[2]">
+          <li class="my-offcanvas-body-item-dropdown-item">
+            <div class="my-offcanvas-body-item-dropdown-title">
+              <a class="dropdown-menu-item" style="margin: 0px;">Theo dịp</a>
+              <div class="my-offcanvas-body-item-dropdown-toggle" (click)="openSubDropDown(1,2)">
+                <div [class.rotate]="isSubOpen[2][1]">
+                  <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16">
+                    <path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd"></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <ul class="my-offcanvas-body-item-dropdown-sub" [class.open]="isSubOpen[2][1]">
+              <li>
+                <a class="dropdown-menu-item" style="margin: 0px;">Gợi ý quà tặng Mẹ</a>
+              </li>
+              <li>
+                <a class="dropdown-menu-item" style="margin: 0px;">Sinh nhật</a>
+              </li>
+              <li>
+                <a class="dropdown-menu-item" style="margin: 0px;">Halloween</a>
+              </li>
+              <li>
+                <a class="dropdown-menu-item" style="margin: 0px;">Đám cưới</a>
+              </li>
+              <li>
+                <a class="dropdown-menu-item" style="margin: 0px;">Giáng sinh</a>
+              </li>
+              <li>
+                <a class="dropdown-menu-item" style="margin: 0px;">Phục sinh</a>
+              </li>
+              <li>
+                <a class="dropdown-menu-item" style="margin: 0px;">Ngày của Mẹ</a>
+              </li>
+              <li>
+                <a class="dropdown-menu-item" style="margin: 0px;">Ngày của Cha</a>
+              </li>
+              <li>
+                <a class="dropdown-menu-item" style="margin: 0px;">Tiệc tùng</a>
+              </li>
+            </ul>
+          </li>
+          <li class="my-offcanvas-body-item-dropdown-item">
+            <div class="my-offcanvas-body-item-dropdown-title">
+              <a class="dropdown-menu-item" style="margin: 0px;">Chủ đề</a>
+              <div class="my-offcanvas-body-item-dropdown-toggle" (click)="openSubDropDown(2,2)">
+                <div [class.rotate]="isSubOpen[2][2]">
+                  <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16">
+                    <path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd"></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <ul class="my-offcanvas-body-item-dropdown-sub" [class.open]="isSubOpen[2][2]">
+              <li>
+                <a class="dropdown-menu-item" style="margin: 0px;">Cuộc sống kì diệu</a>
+              </li>
+              <li>
+                <a class="dropdown-menu-item" style="margin: 0px;">Hy vọng & Khởi đầu mới</a>
+              </li>
+              <li>
+                <a class="dropdown-menu-item" style="margin: 0px;">Sự bảo hộ</a>
+              </li>
+              <li>
+                <a class="dropdown-menu-item" style="margin: 0px;">Tình yêu và lãng mạn</a>
+              </li>
+              <li>
+                <a class="dropdown-menu-item" style="margin: 0px;">BST Let it Snow</a>
+              </li>
+              <li>
+                <a class="dropdown-menu-item" style="margin: 0px;">Thiên nhiên, Động vật và Hoa</a>
+              </li>
+              <li>
+                <a class="dropdown-menu-item" style="margin: 0px;">Chiêm tinh và Các ngôi sao</a>
+              </li>
+              <li>
+                <a class="dropdown-menu-item" style="margin: 0px;">Cổ tích</a>
+              </li>
+              <li>
+                <a class="dropdown-menu-item" style="margin: 0px;">Du lịch</a>
+              </li>
+              <li>
+                <a class="dropdown-menu-item" style="margin: 0px;">Dành cho nam</a>
+              </li>
+            </ul>
+          </li>
+          <li class="my-offcanvas-body-item-dropdown-item">
+            <div class="my-offcanvas-body-item-dropdown-title">
+              <a class="dropdown-menu-item" style="margin: 0px;">Phiên bản giới hạn</a>
+              <div class="my-offcanvas-body-item-dropdown-toggle" (click)="openSubDropDown(2,3)">
+                <div [class.rotate]="isSubOpen[2][3]">
+                  <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16">
+                    <path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd"></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <ul class="my-offcanvas-body-item-dropdown-sub" [class.open]="isSubOpen[2][3]">
+              <li>
+                <a class="dropdown-menu-item" style="margin: 0px;">Celebrating Mother</a>
+              </li>
+              <li>
+                <a class="dropdown-menu-item" style="margin: 0px;">Shimmering Love</a>
+              </li>
+              <li>
+                <a class="dropdown-menu-item" style="margin: 0px;">Shimmering Love</a>
+              </li>
+              <li>
+                <a class="dropdown-menu-item" style="margin: 0px;">Lắc tay Growing Love</a>
+              </li>
+              <li>
+                <a class="dropdown-menu-item" style="margin: 0px;">People's Unique 2022</a>
+              </li>
+              <li>
+                <a class="dropdown-menu-item" style="margin: 0px;">Vòng tay potential</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <hr>
+      <div class="my-offcanvas-body-item">
+        <a href="#" class="text text-navigation" style="margin: 0px;">sản phẩm bán chạy</a>
+      </div>
+      <hr>
+      <div class="my-offcanvas-body-item">
+        <div class="my-offcanvas-body-item-title">
+          <a href="#" class="text text-navigation" style="margin: 0px;">collection</a>
+          <div class="my-offcanvas-body-item-toggle" (click)="openDropDown(3)">
+            <div class="my-offcanvas-body-item-icon" [class.rotate]="isOpen[3]">
+              <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16"><path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd"></path></svg>
+            </div>
+          </div>
+        </div>
+        <ul class="my-offcanvas-body-item-dropdown" [class.open]="isOpen[3]">
+          <li class="my-offcanvas-body-item-dropdown-item">
+            <div class="my-offcanvas-body-item-dropdown-title">
+              <a class="dropdown-menu-item" style="margin: 0px;">Football Passion</a>
+            </div>
+          </li>
+          <li class="my-offcanvas-body-item-dropdown-item">
+            <div class="my-offcanvas-body-item-dropdown-title">
+              <a class="dropdown-menu-item" style="margin: 0px;">Essence of Life - Summer'24</a>
+            </div>
+          </li>
+          <li class="my-offcanvas-body-item-dropdown-item">
+            <div class="my-offcanvas-body-item-dropdown-title">
+              <a class="dropdown-menu-item" style="margin: 0px;">Nurtured Connection - Spring'24</a>
+            </div>
+          </li>
+          <li class="my-offcanvas-body-item-dropdown-item">
+            <div class="my-offcanvas-body-item-dropdown-title">
+              <a class="dropdown-menu-item" style="margin: 0px;">Together - Winter'23</a>
+            </div>
+          </li>
+          <li class="my-offcanvas-body-item-dropdown-item">
+            <div class="my-offcanvas-body-item-dropdown-title">
+              <a class="dropdown-menu-item" style="margin: 0px;">Love of Paws - Autumn'23</a>
+            </div>
+          </li>
+          <li class="my-offcanvas-body-item-dropdown-item">
+            <div class="my-offcanvas-body-item-dropdown-title">
+              <a class="dropdown-menu-item" style="margin: 0px;">Life is miracle - Summer'23</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <hr>
+      <div class="my-offcanvas-body-item">
+        <div class="my-offcanvas-body-item-function">
+          <svg aria-hidden="true" focusable="false" role="presentation" viewBox="0 0 64 64" style="width:20px">
+            <path d="M47.16 28.58A18.58 18.58 0 1 1 28.58 10a18.58 18.58 0 0 1 18.58 18.58zM54 54L41.94 42"
+                  fill="none"  
+                  stroke="black"  
+                  stroke-width="2">  
+            </path>
+          </svg>
+          <div class="my-offcanvas-body-text">
+            Tìm kiếm
+          </div>
+        </div>
+      </div>
+      <div class="my-offcanvas-body-item">
+        <div class="my-offcanvas-body-item-function">
+          <div class="my-offcanvas-body-text">
+            Log in
+          </div>
+        </div>
+      </div>
+      <div class="my-offcanvas-body-item">
+        <div class="my-offcanvas-body-item-function">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-earth" viewBox="0 0 512 512" style="width:20px"><path d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM51.68 295.1L83.41 301.5C91.27 303.1 99.41 300.6 105.1 294.9L120.5 279.5C132 267.1 151.6 271.1 158.9 285.8L168.2 304.3C172.1 313.9 182.8 319.1 193.5 319.1C208.7 319.1 219.6 305.4 215.2 290.8L209.3 270.9C204.6 255.5 216.2 240 232.3 240H234.6C247.1 240 260.5 233.3 267.9 222.2L278.6 206.1C284.2 197.7 283.9 186.6 277.8 178.4L261.7 156.9C251.4 143.2 258.4 123.4 275.1 119.2L292.1 114.1C299.6 113.1 305.7 107.8 308.6 100.6L324.9 59.69C303.4 52.12 280.2 48 255.1 48C141.1 48 47.1 141.1 47.1 256C47.1 269.4 49.26 282.5 51.68 295.1L51.68 295.1zM450.4 300.4L434.6 304.9C427.9 306.7 420.8 304 417.1 298.2L415.1 295.1C409.1 285.7 398.7 279.1 387.5 279.1C376.4 279.1 365.1 285.7 359.9 295.1L353.8 304.6C352.4 306.8 350.5 308.7 348.2 309.1L311.1 330.1C293.9 340.2 286.5 362.5 294.1 381.4L300.5 393.8C309.1 413 331.2 422.3 350.1 414.9L353.5 413.1C363.6 410.2 374.8 411.8 383.5 418.1L385 419.2C422.2 389.7 449.1 347.8 459.4 299.7C456.4 299.4 453.4 299.6 450.4 300.4H450.4zM156.1 367.5L188.1 375.5C196.7 377.7 205.4 372.5 207.5 363.9C209.7 355.3 204.5 346.6 195.9 344.5L163.9 336.5C155.3 334.3 146.6 339.5 144.5 348.1C142.3 356.7 147.5 365.4 156.1 367.5V367.5zM236.5 328.1C234.3 336.7 239.5 345.4 248.1 347.5C256.7 349.7 265.4 344.5 267.5 335.9L275.5 303.9C277.7 295.3 272.5 286.6 263.9 284.5C255.3 282.3 246.6 287.5 244.5 296.1L236.5 328.1zM321.7 120.8L305.7 152.8C301.7 160.7 304.9 170.4 312.8 174.3C320.7 178.3 330.4 175.1 334.3 167.2L350.3 135.2C354.3 127.3 351.1 117.6 343.2 113.7C335.3 109.7 325.6 112.9 321.7 120.8V120.8z"></path></svg>
+          <div class="my-offcanvas-body-text">
+            Thay đổi đất nước/vùng
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="my-offcanvas-footer">
+      <div class="my-offcanvas-footer-item">
+        <a href="#">
+          <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-instagram" viewBox="0 0 32 32">
+            <path fill="#000" d="M16 3.094c4.206 0 4.7.019 6.363.094 1.538.069 2.369.325 2.925.544.738.287 1.262.625 1.813 1.175s.894 1.075 1.175 1.813c.212.556.475 1.387.544 2.925.075 1.662.094 2.156.094 6.363s-.019 4.7-.094 6.363c-.069 1.538-.325 2.369-.544 2.925-.288.738-.625 1.262-1.175 1.813s-1.075.894-1.813 1.175c-.556.212-1.387.475-2.925.544-1.663.075-2.156.094-6.363.094s-4.7-.019-6.363-.094c-1.537-.069-2.369-.325-2.925-.544-.737-.288-1.263-.625-1.813-1.175s-.894-1.075-1.175-1.813c-.212-.556-.475-1.387-.544-2.925-.075-1.663-.094-2.156-.094-6.363s.019-4.7.094-6.363c.069-1.537.325-2.369.544-2.925.287-.737.625-1.263 1.175-1.813s1.075-.894 1.813-1.175c.556-.212 1.388-.475 2.925-.544 1.662-.081 2.156-.094 6.363-.094zm0-2.838c-4.275 0-4.813.019-6.494.094-1.675.075-2.819.344-3.819.731-1.037.4-1.913.944-2.788 1.819S1.486 4.656 1.08 5.688c-.387 1-.656 2.144-.731 3.825-.075 1.675-.094 2.213-.094 6.488s.019 4.813.094 6.494c.075 1.675.344 2.819.731 3.825.4 1.038.944 1.913 1.819 2.788s1.756 1.413 2.788 1.819c1 .387 2.144.656 3.825.731s2.213.094 6.494.094 4.813-.019 6.494-.094c1.675-.075 2.819-.344 3.825-.731 1.038-.4 1.913-.944 2.788-1.819s1.413-1.756 1.819-2.788c.387-1 .656-2.144.731-3.825s.094-2.212.094-6.494-.019-4.813-.094-6.494c-.075-1.675-.344-2.819-.731-3.825-.4-1.038-.944-1.913-1.819-2.788s-1.756-1.413-2.788-1.819c-1-.387-2.144-.656-3.825-.731C20.812.275 20.275.256 16 .256z"></path><path fill="#000" d="M16 7.912a8.088 8.088 0 0 0 0 16.175c4.463 0 8.087-3.625 8.087-8.088s-3.625-8.088-8.088-8.088zm0 13.338a5.25 5.25 0 1 1 0-10.5 5.25 5.25 0 1 1 0 10.5zM26.294 7.594a1.887 1.887 0 1 1-3.774.002 1.887 1.887 0 0 1 3.774-.003z"></path>
+          </svg>
+        </a>
+      </div>
+      <div class="my-offcanvas-footer-item">
+        <a href="#">
+          <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-facebook" viewBox="0 0 14222 14222">
+            <path d="M14222 7112c0 3549.352-2600.418 6491.344-6000 7024.72V9168h1657l315-2056H8222V5778c0-562 275-1111 1159-1111h897V2917s-814-139-1592-139c-1624 0-2686 984-2686 2767v1567H4194v2056h1806v4968.72C2600.418 13603.344 0 10661.352 0 7112 0 3184.703 3183.703 1 7111 1s7111 3183.703 7111 7111zm-8222 7025c362 57 733 86 1111 86-377.945 0-749.003-29.485-1111-86.28zm2222 0v-.28a7107.458 7107.458 0 0 1-167.717 24.267A7407.158 7407.158 0 0 0 8222 14137zm-167.717 23.987C7745.664 14201.89 7430.797 14223 7111 14223c319.843 0 634.675-21.479 943.283-62.013z"></path>
+          </svg>
+        </a>
+      </div>
+      <div class="my-offcanvas-footer-item">
+        <a href="#">
+          <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-youtube" viewBox="0 0 21 20">
+            <path fill="#000" d="M-.196 15.803q0 1.23.812 2.092t1.977.861h14.946q1.165 0 1.977-.861t.812-2.092V3.909q0-1.23-.82-2.116T17.539.907H2.593q-1.148 0-1.969.886t-.82 2.116v11.894zm7.465-2.149V6.058q0-.115.066-.18.049-.016.082-.016l.082.016 7.153 3.806q.066.066.066.164 0 .066-.066.131l-7.153 3.806q-.033.033-.066.033-.066 0-.098-.033-.066-.066-.066-.131z"></path>
+          </svg>
+        </a>
+      </div>
+      <div class="my-offcanvas-footer-item">
+        <a href="#">
+          <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-pinterest" viewBox="0 0 256 256">
+            <path d="M0 128.002c0 52.414 31.518 97.442 76.619 117.239-.36-8.938-.064-19.668 2.228-29.393 2.461-10.391 16.47-69.748 16.47-69.748s-4.089-8.173-4.089-20.252c0-18.969 10.994-33.136 24.686-33.136 11.643 0 17.268 8.745 17.268 19.217 0 11.704-7.465 29.211-11.304 45.426-3.207 13.578 6.808 24.653 20.203 24.653 24.252 0 40.586-31.149 40.586-68.055 0-28.054-18.895-49.052-53.262-49.052-38.828 0-63.017 28.956-63.017 61.3 0 11.152 3.288 19.016 8.438 25.106 2.368 2.797 2.697 3.922 1.84 7.134-.614 2.355-2.024 8.025-2.608 10.272-.852 3.242-3.479 4.401-6.409 3.204-17.884-7.301-26.213-26.886-26.213-48.902 0-36.361 30.666-79.961 91.482-79.961 48.87 0 81.035 35.364 81.035 73.325 0 50.213-27.916 87.726-69.066 87.726-13.819 0-26.818-7.47-31.271-15.955 0 0-7.431 29.492-9.005 35.187-2.714 9.869-8.026 19.733-12.883 27.421a127.897 127.897 0 0 0 36.277 5.249c70.684 0 127.996-57.309 127.996-128.005C256.001 57.309 198.689 0 128.005 0 57.314 0 0 57.309 0 128.002z"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #search let-offcanvas>
+  <div class="search-container">
+    <svg aria-hidden="true" focusable="false" role="presentation" viewBox="0 0 64 64" style="width: 28px">
+      <path d="M47.16 28.58A18.58 18.58 0 1 1 28.58 10a18.58 18.58 0 0 1 18.58 18.58zM54 54L41.94 42" fill="none" stroke="black" stroke-width="2"></path>
+    </svg>
+    <input type="text" name="search" id="search">
+    <button type="button" class="header-link" (click)="offcanvas.dismiss('Cross click')">
+      <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-close" viewBox="0 0 64 64" style="width:20px">
+        <path d="M19 17.61l27.12 27.13m0-27.12L19 44.74"
+            fill="none"  
+            stroke="black"  
+            stroke-width="2">
+        </path></svg>
+    </button>
+  </div>
+</ng-template>
+
+
+<section class="header">
+  <div class="header-container">
+    <div class="header-logo">
+      <img src="https://www.trollbeads.vn/cdn/shop/files/Trollbeads_LOGO_3_Black_stor_70a4b27d-a42e-4da6-bf08-82fc0df7a991_170x@2x.png?v=1663577171" alt="">
+    </div>
+    <div class="header-navigation">
+      <ul class="menu">
+        <li class="item">
+          <a href="#" class="text text-navigation" >bộ sưu tập mới</a>
+        </li>
+        <li class="item">
+          <a href="#" class="text text-navigation ">trang sức</a>
+          <div class="dropdown">
+            <div class="dropdown-container">
+              <div class="dropdown-item" >
+                <a href="#" class="dropdown-image" style="background-image: url('https://www.trollbeads.vn/cdn/shop/collections/Step1_menu_border_400x.jpg?v=1663253441');"></a>
+                <a class="dropdown-title">Hạt bead và mặt dây chuyền</a>
+                <ul class="my-dropdown-menu">
+                  <li class="dropdown-menu-item">
+                    <a href="#" class="dropdown-link">Hạt bead</a>
+                  </li>
+                  <li class="dropdown-menu-item">
+                    <a href="#" class="dropdown-link">Mặt dây chuyền</a>
+                  </li>
+                  <li class="dropdown-menu-item">
+                    <a href="#" class="dropdown-link">Bông tai</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="dropdown-item">
+                <a href="#" class="dropdown-image" style="background-image: url(//www.trollbeads.vn/cdn/shop/collections/Step2_menu_A_400x.jpg?v=1663253442)"></a>
+                <a class="dropdown-title">Loại trang sức</a>
+                <ul class="my-dropdown-menu">
+                  <li class="dropdown-menu-item">
+                    <a href="#" class="dropdown-link">Dây chuyền</a>
+                  </li>
+                  <li class="dropdown-menu-item">
+                    <a href="#" class="dropdown-link">Lắc tay</a>
+                  </li>
+                  <li class="dropdown-menu-item">
+                    <a href="#" class="dropdown-link">Phụ kiện tóc</a>
+                  </li>
+                  <li class="dropdown-menu-item">
+                    <a href="#" class="dropdown-link">Bông tai</a>
+                  </li>
+                  <li class="dropdown-menu-item">
+                    <a href="#" class="dropdown-link">Nhẫn</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="dropdown-item">
+                <a href="#" class="dropdown-image" style="background-image: url(//www.trollbeads.vn/cdn/shop/collections/Step3_menu_W_text_88dfdd34-257f-4207-b9e9-a76568568ec6_400x.jpg?v=1663253444)"></a>
+                <a class="dropdown-title">Khóa và chặn</a>
+                <ul class="my-dropdown-menu">
+                  <li class="dropdown-menu-item">
+                    <a href="#" class="dropdown-link">Chặn</a>
+                  </li>
+                  <li class="dropdown-menu-item">
+                    <a href="#" class="dropdown-link">Khóa</a>
+                  </li>
+                  
+                </ul>
+              </div>
+              <div class="dropdown-item">
+                <a class="dropdown-title">Uư đãi</a>
+              </div>
+              <div class="dropdown-item"></div>
+            </div>
+          </div>
+        </li>
+        <li class="item">
+          <a href="#" class="text text-navigation">quà tặng</a>
+          <div class="dropdown">
+            <div class="dropdown-container">
+              <div class="dropdown-item" >
+                <a href="#" class="dropdown-image" style="background-image: url('//www.trollbeads.vn/cdn/shop/collections/gaver_anledninger_2880x1620_d82f586a-17c4-4c53-a7ca-cd1cc605466d_400x.jpg?v=1663253598');"></a>
+                <a class="dropdown-title">Theo dịp</a>
+                <ul class="my-dropdown-menu">
+                  <li class="dropdown-menu-item">
+                    <a href="#" class="dropdown-link">Gợi ý quà tặng mẹ</a>
+                  </li>
+                  <li class="dropdown-menu-item">
+                    <a href="#" class="dropdown-link">Sinh nhật</a>
+                  </li>
+                  <li class="dropdown-menu-item">
+                    <a href="#" class="dropdown-link">Âm nhạc & Nghệ thuật</a>
+                  </li>
+                  <li class="dropdown-menu-item">
+                    <a href="#" class="dropdown-link">Halloween</a>
+                  </li>
+                  <li class="dropdown-menu-item">
+                    <a href="#" class="dropdown-link">Đám cưới</a>
+                  </li>
+                  <li class="dropdown-menu-item">
+                    <a href="#" class="dropdown-link">Giáng sinh</a>
+                  </li>
+                  <li class="dropdown-menu-item">
+                    <a href="#" class="dropdown-link">Phục sinh</a>
+                  </li>
+                  <li class="dropdown-menu-item">
+                    <a href="#" class="dropdown-link">Ngày của mẹ</a>
+                  </li>
+                  <li class="dropdown-menu-item">
+                    <a href="#" class="dropdown-link">Ngày của cha</a>
+                  </li>
+                  <li class="dropdown-menu-item">
+                    <a href="#" class="dropdown-link">Tiệc tùng</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="dropdown-item">
+                <a href="#" class="dropdown-image" style="background-image: url(//www.trollbeads.vn/cdn/shop/collections/gaver_anledninger_2880x1620_74eb1b7c-8ff1-44ed-b861-fb5fdc6ce352_400x.jpg?v=1663572153)"></a>
+                <a class="dropdown-title">Theo chủ đề</a>
+                <ul class="my-dropdown-menu">
+                  <li class="dropdown-menu-item">
+                    <a href="#" class="dropdown-link">Cuộc sống kì diệu</a>
+                  </li>
+                  <li class="dropdown-menu-item">
+                    <a href="#" class="dropdown-link">Hy vọng và khởi đầu mới</a>
+                  </li>
+                  <li class="dropdown-menu-item">
+                    <a href="#" class="dropdown-link">Sự bảo hộ</a>
+                  </li>
+                  <li class="dropdown-menu-item">
+                    <a href="#" class="dropdown-link">Tình yêu và lãng mạn</a>
+                  </li>
+                  <li class="dropdown-menu-item">
+                    <a href="#" class="dropdown-link">BST Let it Snow</a>
+                  </li>
+                  <li class="dropdown-menu-item">
+                    <a href="#" class="dropdown-link">Thiên nhiên, động vật và hoa</a>
+                  </li>
+                  <li class="dropdown-menu-item">
+                    <a href="#" class="dropdown-link">Chiêm tinh và các ngôi sao</a>
+                  </li>
+                  <li class="dropdown-menu-item">
+                    <a href="#" class="dropdown-link">Cổ tích</a>
+                  </li>
+                  <li class="dropdown-menu-item">
+                    <a href="#" class="dropdown-link">Du lịch</a>
+                  </li>
+                  <li class="dropdown-menu-item">
+                    <a href="#" class="dropdown-link">Dành cho nam</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="dropdown-item">
+                <a href="#" class="dropdown-image" style="background-image: url(//www.trollbeads.vn/cdn/shop/collections/Bracelet_of_Potential_Inspirational_400x.jpg?v=1673517616)"></a>
+                <a class="dropdown-title">Phiên bản giới hạn</a>
+                <ul class="my-dropdown-menu">
+                  <li class="dropdown-menu-item">
+                    <a href="#" class="dropdown-link">Celebrating Mother</a>
+                  </li>
+                  <li class="dropdown-menu-item">
+                    <a href="#" class="dropdown-link">Shimmering Love</a>
+                  </li>
+                  <li class="dropdown-menu-item">
+                    <a href="#" class="dropdown-link">Lắc tay Growing Love</a>
+                  </li>
+                  <li class="dropdown-menu-item">
+                    <a href="#" class="dropdown-link">People's Uniques 2022</a>
+                  </li>
+                  <li class="dropdown-menu-item">
+                    <a href="#" class="dropdown-link">Vong tay potential</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="dropdown-item">
+              </div>
+              <div class="dropdown-item"></div>
+            </div>
+          </div>
+        </li>
+        <li class="item">
+          <a href="#" class="text text-navigation">sản phẩm bán chạy</a>
+        </li>
+        <li class="item">
+          <a href="#" class="text text-navigation">collection</a>
+        </li>
+      </ul>
+    </div>
+    <div class="header-functions">
+      <a href="#" class="header-link heart">
+        <span class="material-symbols-outlined">
+          favorite
+        </span>
+        <div class="count"> {{count}} </div>
+      </a>
+      <div class="header-link icon" (click)="openEnd(content)">
+        <svg aria-hidden="true" focusable="false" role="presentation" viewBox="0 0 64 64">
+          <path d="M7 15h51M7 32h43M7 49h51" 
+                fill="none"  
+                stroke="black"  
+                stroke-width="2"></path>
+        </svg>
+      </div>
+      <a href="#" class="header-link" id="account">
+        <svg aria-hidden="true" focusable="false" role="presentation" viewBox="0 0 64 64">
+          <path d="M35 39.84v-2.53c3.3-1.91 6-6.66 6-11.41 0-7.63 0-13.82-9-13.82s-9 6.19-9 13.82c0 4.75 2.7 9.51 6 11.41v2.53c-10.18.85-18 6-18 12.16h42c0-6.19-7.82-11.31-18-12.16z"
+                fill="none"  
+                stroke="black"  
+                stroke-width="2">  
+          </path>
+        </svg>
+      </a>
+      <div class="header-link" (click)="openTop(search)">
+        <svg aria-hidden="true" focusable="false" role="presentation" viewBox="0 0 64 64">
+          <path d="M47.16 28.58A18.58 18.58 0 1 1 28.58 10a18.58 18.58 0 0 1 18.58 18.58zM54 54L41.94 42"
+                fill="none"  
+                stroke="black"  
+                stroke-width="2">  
+          </path>
+        </svg>
+      </div>
+      <a href="#" class="header-link">
+        <svg aria-hidden="true" focusable="false" role="presentation" viewBox="0 0 64 64">
+          <g fill="none" stroke="#000" stroke-width="2">
+            <path d="M25 26c0-15.79 3.57-20 8-20s8 4.21 8 20"></path>
+            <path d="M14.74 18h36.51l3.59 36.73h-43.7z"></path>
+          </g>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
