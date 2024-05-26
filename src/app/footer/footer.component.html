@@ -1,0 +1,69 @@
+<section class="footer">
+  <div class="footer-container">
+    <div class="footer-menu">
+      <div class="footer-item">
+        <div class="footer-item-title">dịch vụ khách hàng</div>
+        <ul>
+          <li>Thông tin vận chuyển</li>
+          <li>Thông tin bảo hành</li>
+          <li>Tìm kích cỡ của bạn</li>
+          <li>Chăm sóc trang sức</li>
+          <li>Liên hệ chúng tôi</li>
+          <li>Thư viện</li>
+          <li>Chính sách & Điều khoản</li>
+        </ul>
+      </div>
+      <div class="footer-item">
+        <div class="footer-item-title">Tài khoản</div>
+        <ul>
+          <li>Tài khoản của tôi</li>
+          <li>Mục yêu thích của tôi</li>
+          <li>Hộp trang sức của tôi</li>
+        </ul>
+      </div>
+      <div class="footer-item">
+        <div class="footer-item-title">Về chúng tôi</div>
+        <ul>
+          <li>Trollbeads Concept</li>
+          <li>Câu chuyện thương hiệu</li>
+          <li>Nghê thủ công</li>
+          <li>Uniques</li>
+          <li>Sự kiện</li>
+          <li>Nhà thiết kế</li>
+          <li>Trách nhiệm</li>
+          <li>Tìm của hàng</li>
+        </ul>
+      </div>
+      <div class="footer-item">
+        <div class="footer-item-sub">
+          <div class="footer-item-title">Đăng kí nhận bản tin</div>
+          <ul>
+            <li>
+              Đăng ký nhận bản tin của chúng tôi để nhận được nhiều cảm hứng tuyệt vời, tin tức thú vị và các mẹo & cách phối vòng!
+            </li>
+          </ul>
+          <ul>
+            <li>
+              Bạn có thể rút lại sự đồng ý của mình bất kỳ lúc nào. Đọc thêm trong Chính sách Bảo mật & Cookie của chúng tôi
+            </li>
+          </ul>
+          <div class="footer-email">
+            <input type="text" name="email" id="email" placeholder="Nhập email của bạn" (input)="onEmailInput($event)">
+            <button type="submit">
+              <div *ngIf="isRegister === false">
+                <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-email" viewBox="0 0 64 64">
+                  <path d="M63 52H1V12h62zM1 12l25.68 24h9.72L63 12M21.82 31.68L1.56 51.16m60.78.78L41.27 31.68"
+                    fill="none"  
+                    stroke="black"  
+                    stroke-width="2">
+                  </path>
+                </svg>
+              </div>
+              <div class="footer-email-register" *ngIf="isRegister">Đăng ký</div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

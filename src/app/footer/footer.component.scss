@@ -1,0 +1,76 @@
+.footer {
+  &-container {
+    margin: 40px;
+  }
+  &-menu {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-left: -22px;
+  }
+  &-item {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-left: 22px;
+    &-title {
+      font-size: 14.4px;
+      letter-spacing: 4.32px;
+      line-height: 20.16px;
+      text-transform: uppercase;
+    }
+    & li {
+      font-size: 15.3px;
+      letter-spacing: 0.45px;
+      line-height: 21.42px;
+      padding: 4px 0px;
+      text-align: left;
+      cursor: pointer;
+    }
+    &-sub {
+      padding-right: 60px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+  &-email {
+    display: flex;
+    align-items: center;
+    position: relative;
+    & input {
+      padding: 8px 0px;
+      font-size: 15.3px;
+      letter-spacing: 0.45px;
+      line-height: 21.42px;
+      width: 100%;
+      outline: none;
+      border: none;
+      border-bottom: solid 2px black;
+      padding-right: 80px;
+      &::placeholder {
+        color: black;
+      }
+    }
+    & button {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0px;
+      & svg {
+        width: 28px;
+        height: 28px;
+        font-size: 28px;
+      }
+    }
+    &-register {
+      font-size: 15.3px;
+      letter-spacing: 0.45px;
+      line-height: 21.42px;
+    }
+  }
+}
