@@ -73,4 +73,30 @@
       line-height: 21.42px;
     }
   }
+  &-payments {
+    & ul {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 4px;
+    }
+  }
+}
+
+.my-offcanvas {
+  &-footer {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 16px;
+    &-item {
+      & a {
+        
+        & svg {
+          width: 24px;
+          height: 24px;
+        }
+      }
+    }
+  }
 }
