@@ -1,6 +1,10 @@
 .footer {
+  border-top: solid 1px var(--neutral-grey-2);
   &-container {
-    margin: 40px;
+    margin: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
   }
   &-menu {
     display: grid;
@@ -81,6 +85,115 @@
       gap: 4px;
     }
   }
+  &-region {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      & svg {
+        width: 10px;  
+        height: 10px; 
+      }
+    }
+  }
+  &-right {
+    font-size: 12.6px;
+    letter-spacing: 0.45px;
+    line-height: 17.64px;
+    padding: 15px 0px 7.5px;
+    text-align: center;
+    margin-top: -40px;
+    margin-bottom: 60px;
+  }
+  &-mobile {
+    &-menu {
+      display: none;
+    }
+    &-item {
+      position: relative;
+    }
+    &-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      & p {
+        font-size: 13.248px;
+        letter-spacing: 3.9744px;
+        line-height: 18.5472px;
+        margin: 10px 0px;
+        padding: 15px 10px 15px 0px;
+        text-align: left;
+        text-transform: uppercase;
+      }
+      & svg {
+        width: 10px;
+        height: 10px;
+        transition: max-height 0.6s ease-out;
+      }
+    }
+    &-content {
+      display: none;
+      overflow: hidden;
+      transition: max-height 0.5s ease-out, margin-top 0.5s ease-out;
+      
+      & input {
+        max-width: 300px;
+      }
+      & ul {
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        flex-direction:column;
+        margin-bottom: 20px;
+        & li {
+          & a {
+            font-size: 15.3px;
+            letter-spacing: 0.414px;
+            line-height: 21.42px;
+            padding: 4px 0px;
+            color: black;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes flip-up {
+  0% {
+    transform: perspective(400px) rotateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: perspective(400px) rotateX(-180deg);
+    opacity: 1;
+  }
+}
+
+.flip-up {
+  animation: flip-up 0.2s ease-out forwards;
+}
+
+.open {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  text-align: center;
+  transition: max-height 0.5s ease-in, margin-top 0.5s ease-in;
+}
+
+hr, p {
+  margin: 0px;
 }
 
 .my-offcanvas {
@@ -97,6 +210,31 @@
           height: 24px;
         }
       }
+    }
+  }
+}
+
+@media screen and (max-width: 959px) {
+  .footer {
+    &-menu {
+      grid-template-columns: 1fr 1fr;
+      row-gap: 40px;
+    }
+  }
+}
+
+@media screen and (max-width: 769px) {
+  .footer {
+    &-container {
+      padding: 0px 17px;
+      margin: 0px;
+    }
+    &-menu {
+      display: none;
+      
+    }
+    &-mobile-menu {
+      display: block;
     }
   }
 }

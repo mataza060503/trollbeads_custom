@@ -1,6 +1,15 @@
 .header {
   padding: 20px 0px;
+  position: relative;
+  z-index: 10;
+  transition: linear 0.1s ;
+  &:hover {
+    background-color: white;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    transition: linear 0.1s ;
+  }
   &-container {
+    width: 100vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -12,6 +21,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 10;
     & img {
       width: 170px;
       height: 37px;
@@ -26,6 +36,7 @@
     & ul {
       text-rendering: optimizeLegibility;
     }
+    
   }
   &-functions {
     display: flex;
@@ -87,11 +98,18 @@
 .item {
   white-space: nowrap; 
   width: fit-content;
+  transition: linear 0.1s;
   &:hover  .dropdown{
     display: block;
   }
+  &:hover {
+    background-color: var(--primary-color-2);
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    transition: linear 0.1s;
+  }
   z-index: 5;
 }
+
 
 .dropdown {
   display: none;
@@ -336,6 +354,9 @@
     }
     &-container {
       padding: 0px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
   }
 

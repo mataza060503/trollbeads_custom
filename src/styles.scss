@@ -12,6 +12,11 @@
 body {
   font-family: var(--font);
   color: #1c1d1d;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 .wrapper {
@@ -27,11 +32,73 @@ body {
 
 a {
   text-decoration: none;
+  color: #000000;
 }
+
+i {
+  font-style: italic;
+}
+
+
+.button {
+  border: none;
+  outline: none;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+
+  &--primary {
+    background-color: var(--primary-color-1);
+    color: var(--primary-color-2);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 4.2px;
+    line-height: 19.88px;
+    padding: 11px 20px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: background-color 0.4s;
+
+    &:hover {
+      background-color: #2a2a2a;
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: -150%; // Start outside the button on the right
+      width: 100%; // Adjust as needed for the width of the flash
+      height: 100%;
+      background: rgba(255, 255, 255, 0.3);
+      filter: blur(30px);
+      transform: skewX(-30deg);
+      transition: right 0.5s linear; // Slow down the animation
+    }
+
+    &:hover:before {
+      right: 150%; // Move the flash to the left outside the button
+    }
+
+    &:not(:hover):before {
+      right: -150%; // Keep the flash outside the button on the right when not hovered
+    }
+  }
+}
+
 
 .text {
   font-family: var(--font);
-  color: #1c1d1d;
+  color: var(--primary-color-1);
+  &-center {
+    text-align: center;
+  }
+  &-left {
+    text-align: left;
+  }
+  &-right {
+    text-align: right;
+  }
   &-navigation {
     display: inline-block;
     font-size: 17px;
@@ -46,18 +113,27 @@ a {
       border-bottom: solid 2px  var(--primary-color-1);
     }
   }
-  &-header {
+  &-title {
     font-size: 30.6px;
     line-height: 30.6px;
     text-transform: uppercase;
-    text-align: center;
+    padding: 5px 0px;
+  }
+  &-heading {
+    font-size: 23.4px;
+    line-height: 23.4px;
+    text-transform: uppercase;
+  }
+  &-subheading {
+    font-size: 18px;
+    letter-spacing: 5.4px;
+    line-height: 25.2px;
+    text-transform: uppercase;
   }
   &-body {
-    &-content {
-      font-size: 18px;
-      letter-spacing: 0.45px;
-      line-height: 25.2px
-    }
+    font-size: 18px;
+    letter-spacing: 0.45px;
+    line-height: 25.2px
   }
   &-product {
     &-title {
@@ -91,5 +167,4 @@ button {
   border-left: none
 }
 
-/* Importing Bootstrap SCSS file. */
 @import "reset.css";

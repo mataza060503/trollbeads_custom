@@ -1,0 +1,354 @@
+<section class="homepage">
+  <div class="homepage-container">
+    <div class="homepage-section">
+      <div class="hero-video">
+        <video autoplay="autoplay" muted="muted" loop="loop" #heroVideo>
+          <source src="https://cdn.shopify.com/videos/c/o/v/41410d0c0cc94637bb5ac619cf3886d2.mp4">
+        </video>
+        <div class="hero-text-wrap"></div>
+      </div>
+      <div class="hero-image-footer">
+        <img src="https://www.trollbeads.vn/cdn/shop/files/Essence-of-life-bracelet-straight.jpg?v=1713176764&width=1920" alt="">
+      </div>
+    </div>
+    <div class="homepage-section">
+      <div class="homepage-section-container">
+        <div class="hero-carousel">
+          <div class="text text-title">sản phẩm độc quyền</div>
+          <ngx-slick-carousel class="hero-carousel" 
+                    #slickModal="slick-carousel" 
+                    [config]="heroSlideConfig" 
+                    (init)="slickInit($event)"
+                    (breakpoint)="breakpoint($event)">
+            <div ngxSlickItem class="slide" *ngFor="let product of signatureProducts; let i = index">
+              <div class="product">
+                <div class="product-container">
+                  <span class="material-symbols-outlined icon-favorite" 
+                        [class.favorite]="isClicked[i]" 
+                        (click)="favoriteClick(i)">
+                    favorite
+                  </span>
+                  <div class="product-image">
+                    <img src="{{product.images[0]}}" alt="" class="product-image-default" *ngIf="product.images[0]">
+                    <img src="{{product.images[1]}}" alt="" class="product-image-hover" style="position: absolute;" *ngIf="product.images[1]">
+                  </div>
+                  <div class="product-content">
+                    <div class="text-product-title">{{product.name}}</div>
+                    <div class="text-product-price">{{formatPrice(product.price)}}đ</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ngx-slick-carousel>
+          
+        </div>
+      </div>
+    </div>
+    <ngx-slick-carousel class="carousel" 
+                        #slickModal="slick-carousel" 
+                        [config]="slideConfig" 
+                        (init)="slickInit($event)"
+                        (breakpoint)="breakpoint($event)"
+                        >
+        @for (content of contents; track content) {
+            <div ngxSlickItem class="slide">
+              <div class="carousel-promo">
+                <p class="uppercase"> {{content.uppercase}} <b class="lowercase">{{content.lowercase}}</b> </p>
+              </div>
+            </div>
+        }
+    </ngx-slick-carousel>
+    <div class="homepage-section">
+      <div class="hero-image">
+        <img src="//www.trollbeads.vn/cdn/shop/files/Hero-Essence-of-life-LP-top-6.jpg?v=1713176761&amp;width=2400" alt="Model wearing Trollbeads full glass bead necklace and bracelet, standing in the water at a beach smiling." srcset="//www.trollbeads.vn/cdn/shop/files/Hero-Essence-of-life-LP-top-6.jpg?v=1713176761&amp;width=352 352w, //www.trollbeads.vn/cdn/shop/files/Hero-Essence-of-life-LP-top-6.jpg?v=1713176761&amp;width=832 832w, //www.trollbeads.vn/cdn/shop/files/Hero-Essence-of-life-LP-top-6.jpg?v=1713176761&amp;width=1200 1200w, //www.trollbeads.vn/cdn/shop/files/Hero-Essence-of-life-LP-top-6.jpg?v=1713176761&amp;width=1920 1920w, //www.trollbeads.vn/cdn/shop/files/Hero-Essence-of-life-LP-top-6.jpg?v=1713176761&amp;width=2400 2400w" width="2400" height="1350" loading="lazy" class="small--hide hero__image hero__image--image_G6A8CC lazyloaded" sizes="100%">
+        <img src="//www.trollbeads.vn/cdn/shop/files/MB-Essence-of-life--model-smile-FP_02.jpg?height=1200&amp;v=1713176761" alt="Model wearing Trollbeads full glass bead necklace and bracelet, standing in the water at a beach smiling." srcset="//www.trollbeads.vn/cdn/shop/files/MB-Essence-of-life--model-smile-FP_02.jpg?height=1200&amp;v=1713176761&amp;width=352 352w, //www.trollbeads.vn/cdn/shop/files/MB-Essence-of-life--model-smile-FP_02.jpg?height=1200&amp;v=1713176761&amp;width=832 832w, //www.trollbeads.vn/cdn/shop/files/MB-Essence-of-life--model-smile-FP_02.jpg?height=1200&amp;v=1713176761&amp;width=1095 1095w" width="1095" height="1200" loading="lazy" class="medium-up--hide hero__image hero__image--image_G6A8CC lazyloaded" sizes="100%">
+      </div>
+      <div class="hero-text">
+        <div class="hero-text-content">tạo ra những kĩ niệm tuyệt vời và lâu dài.</div>
+        <div class="hero-text-title">essence of life</div>
+      </div>
+    </div>
+    <p class="text text-body hero-text-sub">Khám phá bộ sưu tập mang chủ đề đại dương đầy thú vị với những chú bạch tuộc và các nàng tiên cá.</p>
+    <div class="homepage-section">
+      <div class="homepage-section-container" *ngIf="products.length > 0">
+        <div class="homepage-section-template-1">
+          <div class="homepage-section-banner">
+            <img src="{{banners[0]}}" alt="">
+          </div>
+          <div class="product">
+            <div class="product-container">
+              <span class="material-symbols-outlined icon-favorite" [class.favorite]="isClicked[0]" (click)="favoriteClick(0)">
+                favorite
+              </span>
+              <div class="product-image">
+                <img src="{{products[0].images[0]}}" alt="" class="product-image-default" *ngIf="products[0].images[0]">
+                <img src="{{products[0].images[1]}}" alt="" class="product-image-hover" style="position: absolute;" *ngIf="products[0].images[1]">
+              </div>
+              <div class="product-content">
+                <div class="text-product-title"> {{products[0].name}} </div>
+                <div class="text-product-price"> {{formatPrice(products[0].price)}}đ </div>
+              </div>
+            </div>
+          </div>
+          <div class="product">
+            <div class="product-container">
+              <span class="material-symbols-outlined icon-favorite" [class.favorite]="isClicked[1]" (click)="favoriteClick(1)">
+                favorite
+              </span>
+              <div class="product-image">
+                <img src="{{products[1].images[0]}}" alt="" class="product-image-default" *ngIf="products[1].images[0]">
+                <img src="{{products[1].images[1]}}" alt="" class="product-image-hover" style="position: absolute;" *ngIf="products[1].images[1]">
+              </div>
+              <div class="product-content">
+                <div class="text-product-title"> {{products[1].name}} </div>
+                <div class="text-product-price"> {{formatPrice(products[1].price)}}đ </div>
+              </div>
+            </div>
+          </div>
+          <div class="product">
+            <div class="product-container">
+              <span class="material-symbols-outlined icon-favorite" [class.favorite]="isClicked[2]" (click)="favoriteClick(2)">
+                favorite
+              </span>
+              <div class="product-image">
+                <img src="{{products[2].images[0]}}" alt="" class="product-image-default" 
+                *ngIf="products[2].images[0]">
+                <img src="{{products[2].images[1]}}" alt="" class="product-image-hover" style="position: absolute;" *ngIf="products[2].images[1]">
+              </div>
+              <div class="product-content">
+                <div class="text-product-title"> {{products[2].name}} </div>
+                <div class="text-product-price"> {{formatPrice(products[2].price)}}đ </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="homepage-section-template-2">
+          <div class="product">
+            <div class="product-container">
+              <span class="material-symbols-outlined icon-favorite" [class.favorite]="isClicked[3]" (click)="favoriteClick(3)">
+                favorite
+              </span>
+              <div class="product-image">
+                <img src="{{products[3].images[0]}}" alt="" class="product-image-default" *ngIf="products[3].images[0]">
+                <img src="{{products[3].images[1]}}" alt="" class="product-image-hover" style="position: absolute;" *ngIf="products[3].images[1]">
+              </div>
+              <div class="product-content">
+                <div class="text-product-title"> {{products[3].name}} </div>
+                <div class="text-product-price"> {{formatPrice(products[3].price)}}đ </div>
+              </div>
+            </div>
+          </div>
+          <div class="product">
+            <div class="product-container">
+              <span class="material-symbols-outlined icon-favorite" [class.favorite]="isClicked[4]" (click)="favoriteClick(4)">
+                favorite
+              </span>
+              <div class="product-image">
+                <img src="{{products[4].images[0]}}" alt="" class="product-image-default" *ngIf="products[4].images[0]">
+                <img src="{{products[4].images[1]}}" alt="" class="product-image-hover" style="position: absolute;" *ngIf="products[4].images[1]">
+              </div>
+              <div class="product-content">
+                <div class="text-product-title"> {{products[4].name}} </div>
+                <div class="text-product-price"> {{formatPrice(products[4].price)}}đ </div>
+              </div>
+            </div>
+          </div>
+          <div class="homepage-section-banner-2">
+            <p class="homepage-section-banner-title">NHỮNG KÍ ỨC ĐẶC BIỆT</p>
+            <p class="homepage-section-banner-content">Những kí ức là tạo nên sự hạnh phúc của bạn. Lưu giữ những khoảnh khắc quan trọng và tình bạn với các sản phẩm trang sức giúp kể câu chuyện của bạn và nhắc nhở bạn về những điều quan trọng trong đời.</p>
+          </div>
+        </div>
+        <div class="homepage-section-template-1">
+          <div class="homepage-section-banner">
+            <img src="{{banners[1]}}" alt="">
+          </div>
+          <div class="product">
+            <div class="product-container">
+              <span class="material-symbols-outlined icon-favorite" [class.favorite]="isClicked[5]" (click)="favoriteClick(5)">
+                favorite
+              </span>
+              <div class="product-image">
+                <img src="{{products[5].images[0]}}" alt="" class="product-image-default" *ngIf="products[5].images[0]">
+                <img src="{{products[5].images[1]}}" alt="" class="product-image-hover" style="position: absolute;" *ngIf="products[5].images[1]">
+              </div>
+              <div class="product-content">
+                <div class="text-product-title"> {{products[5].name}} </div>
+                <div class="text-product-price"> {{formatPrice(products[5].price)}}đ </div>
+              </div>
+            </div>
+          </div>
+          <div class="product">
+            <div class="product-container">
+              <span class="material-symbols-outlined icon-favorite" [class.favorite]="isClicked[6]" (click)="favoriteClick(6)">
+                favorite
+              </span>
+              <div class="product-image">
+                <img src="{{products[6].images[0]}}" alt="" class="product-image-default" *ngIf="products[6].images[0]">
+                <img src="{{products[6].images[1]}}" alt="" class="product-image-hover" style="position: absolute;" *ngIf="products[6].images[1]">
+              </div>
+              <div class="product-content">
+                <div class="text-product-title"> {{products[6].name}} </div>
+                <div class="text-product-price"> {{formatPrice(products[6].price)}}đ </div>
+              </div>
+            </div>
+          </div>
+          <div class="product">
+            <div class="product-container">
+              <span class="material-symbols-outlined icon-favorite" [class.favorite]="isClicked[7]" (click)="favoriteClick(7)">
+                favorite
+              </span>
+              <div class="product-image">
+                <img src="{{products[7].images[0]}}" alt="" class="product-image-default" *ngIf="products[7].images[0]">
+                <img src="{{products[7].images[1]}}" alt="" class="product-image-hover" style="position: absolute;" *ngIf="products[7].images[1]">
+              </div>
+              <div class="product-content">
+                <div class="text-product-title"> {{products[7].name}} </div>
+                <div class="text-product-price"> {{formatPrice(products[7].price)}}đ </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="homepage-section-template-1">
+          <div class="product">
+            <div class="product-container">
+              <span class="material-symbols-outlined icon-favorite" [class.favorite]="isClicked[8]" (click)="favoriteClick(8)">
+                favorite
+              </span>
+              <div class="product-image">
+                <img src="{{products[8].images[0]}}" alt="" class="product-image-default" *ngIf="products[8].images[0]">
+                <img src="{{products[8].images[1]}}" alt="" class="product-image-hover" style="position: absolute;" *ngIf="products[6].images[1]">
+              </div>
+              <div class="product-content">
+                <div class="text-product-title"> {{products[8].name}} </div>
+                <div class="text-product-price"> {{formatPrice(products[8].price)}}đ </div>
+              </div>
+            </div>
+          </div>
+          <div class="product">
+            <div class="product-container">
+              <span class="material-symbols-outlined icon-favorite" [class.favorite]="isClicked[9]" (click)="favoriteClick(9)">
+                favorite
+              </span>
+              <div class="product-image">
+                <img src="{{products[9].images[0]}}" alt="" class="product-image-default" *ngIf="products[9].images[0]">
+                <img src="{{products[9].images[1]}}" alt="" class="product-image-hover" style="position: absolute;" *ngIf="products[9].images[1]">
+              </div>
+              <div class="product-content">
+                <div class="text-product-title"> {{products[9].name}} </div>
+                <div class="text-product-price"> {{formatPrice(products[9].price)}}đ </div>
+              </div>
+            </div>
+          </div>
+          <div class="product">
+            <div class="product-container">
+              <span class="material-symbols-outlined icon-favorite" [class.favorite]="isClicked[10]" (click)="favoriteClick(10)">
+                favorite
+              </span>
+              <div class="product-image">
+                <img src="{{products[10].images[0]}}" alt="" class="product-image-default" *ngIf="products[10].images[0]">
+                <img src="{{products[10].images[1]}}" alt="" class="product-image-hover" style="position: absolute;" *ngIf="products[10].images[1]">
+              </div>
+              <div class="product-content">
+                <div class="text-product-title"> {{products[10].name}} </div>
+                <div class="text-product-price"> {{formatPrice(products[10].price)}}đ </div>
+              </div>
+            </div>
+          </div>
+          <div class="homepage-section-banner">
+            <img src="{{banners[2]}}" alt="">
+          </div>
+        </div>
+        <div class="homepage-section-banner-2">
+          <div class="homepage-section-banner-title">BỔ SUNG NHỮNG VIÊN BEAD MANG CHỦ ĐỀ ĐẠI DƯƠNG</div>
+        </div>
+        <div class="homepage-section-template-1">
+          <div class="product" *ngFor="let product of productList;let i = index">
+            <div class="product-container">
+              <span class="material-symbols-outlined icon-favorite" [class.favorite]="isProductListClicked[i]" (click)="favoriteClick(i)">
+                favorite
+              </span>
+              <div class="product-image">
+                <img src="{{product.images[0]}}" alt="" class="product-image-default" *ngIf="product.images[0]">
+                <img src="{{product.images[1]}}" alt="" class="product-image-hover" style="position: absolute;" *ngIf="product.images[1]">
+              </div>
+              <div class="product-content">
+                <div class="text-product-title"> {{product.name}} </div>
+                <div class="text-product-price"> {{formatPrice(product.price)}}đ </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="homepage-section">
+      <div class="homepage-section-container">
+        <div class="homepage-section-article">
+          <p class="text text-body text-center">Bạn là thuyền trưởng con tàu số phận của chính mình, cuộc sống của bạn được hình thành từ ước mơ và được dẫn dắt bởi những lựa chọn của chính bạn.
+          </p>
+          <p class="text text-body text-center">Hãy chìm đắm trong sự sáng tạo sâu sắc với những chú cá, những cơn sóng nhẹ nhàng và sự chuyển động mềm mại của mặt nước, để lưu giữ vẻ đẹp chân thật của đại dương. Hãy cùng khám phá sự kì bí và lý thú của biển cả với những chú bạch tuộc và phơi bày vẻ đẹp của cuộc sống dưới biển sâu.
+          </p>
+          <p class="text text-body text-center">Hãy thoát ra khỏi những điều tầm thường và bắt đầu hành trình khám phá một thế giới tràn đầy niềm vui và tự do, hãy để trí tưởng tượng của bạn tung bay.
+          </p>
+          <p class="text text-body text-center"><b>Bộ sưu tập Essence of Life: Đắm chìm vào vẻ đẹp của đại dương
+          </b></p>
+          <p class="text text-body text-left">Một bộ sưu tập mang chủ đề Đại dương chíng là một giấc mơ trở thành hiện thực - mỗi một khoảnh khắc đều là một cuộc phiêu lưu đang chờ bạn đồng hành. Cùng khám phá tinh thần bền vững của tình bạn và tôn vinh những vẻ đẹp bất tận của đại dương. Thả mình vào một thế giới nơi có những chiếc neo bằng bạc và những chú cá thủy tinh đa sắc quấn quýt tạo nên những viên ngọc quý vĩnh cửu, tất cả cho thấy vẻ đẹp chân thật của cuộc sống.
+          </p>
+          <p class="text text-body text-left">Quyến rũ và lôi cuốn, bộ sưu tập "Essence of Life" chứa đựng linh hồn của đại dương bao la. Được chế tác thủ công từ bạc sterling và thủy tinh, những viên bead trong bộ sưu tập này mang vẻ đẹp vĩnh cửu khi kết hợp giữa nét đẹp hiện đại và truyền thống, đảm bảo rằng chúng vẫn sẽ được trân trọng dù trải qua bao nhiêu thế hệ.
+          </p>
+          <p class="text text-body text-left">Đắm mình vào thế giới quyến rũ của những viên bead thủy tinh được chế tác thủ công, mỗi viên bead kể một câu chuyện về sự bình yên và thể hiện sự sống mãnh liệt. Từ những gam màu sặc sỡ đặc trưng của thủy tinh Murano Ý đến những họa tiết thanh thoát của nước, mỗi viên bead là một kiệt tác đang chờ đợi được khám phá.
+          </p>
+          <p class="text text-body text-left">Hãy thoát ra khỏi những điều tầm thường và đón nhận những điều phi thường với bộ sưu tập "Essence of Life" của Trollbeads. Cho dù bạn đang tìm kiếm sự tự tin để phát triển cuộc sống hay đang đắm chìm trong những kí ức quý giá trên bãi biển, những viên bead tinh tế của chúng tôi mang đến vẻ đẹp vĩnh cửu, hòa quyện bởi sự thanh lịch và mê hoặc. Hãy để mỗi viên bead trên set vòng tay. dây chuyền hoặc chiếc nhẫn của bạn tỏa sáng, chúng sẽ kể câu chuyện độc đáo của bạn và thể hiện sự kỳ diệu của cuộc sống. Hãy chiêm ngưỡng vẻ đẹp diệu kì và khám phá những kho báu quý giá ngay hôm nay.
+          </p>
+          <p class="text text-body text-center"><i>Every story has a bead.
+          </i></p>
+        </div>
+      </div>
+    </div>
+    <div class="homepage-section">
+      <div class="homepage-section-container">
+        <div class="text text-title">TỰ TAY THIẾT KẾ SET VÒNG CỦA RIÊNG BẠN CHỈ VỚI BA BƯỚC ĐƠN GIẢN!</div>
+        <div class="homepage-section-template-3">
+          <div class="homepage-section-template-3-image">
+            <img src="https://www.trollbeads.vn/cdn/shop/files/build-jewellery-2024-hotspot-01.jpg?v=1713176762&width=1920" alt="">
+            <div class="homepage-section-template-3-tag">
+              <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-tag" viewBox="0 0 64 64"><defs><style>.a{fill:none;stroke:white;stroke-width:2px}</style></defs><path class="a" d="M46.69 10.34l-10.55.07-25.8 25.8 17.45 17.45 25.8-25.8.07-10.55-6.97-6.97z"></path><circle class="a" cx="43.95" cy="20.05" r="3.53"></circle><path class="a" d="M14.4 32.15L31.85 49.6"></path></svg>
+            </div>
+            <div class="homepage-section-template-3-tag">
+              <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-tag" viewBox="0 0 64 64"><defs><style>.a{fill:none;stroke:white;stroke-width:2px}</style></defs><path class="a" d="M46.69 10.34l-10.55.07-25.8 25.8 17.45 17.45 25.8-25.8.07-10.55-6.97-6.97z"></path><circle class="a" cx="43.95" cy="20.05" r="3.53"></circle><path class="a" d="M14.4 32.15L31.85 49.6"></path></svg>
+            </div>
+            <div class="homepage-section-template-3-tag">
+              <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-tag" viewBox="0 0 64 64"><defs><style>.a{fill:none;stroke:white;stroke-width:2px}</style></defs><path class="a" d="M46.69 10.34l-10.55.07-25.8 25.8 17.45 17.45 25.8-25.8.07-10.55-6.97-6.97z"></path><circle class="a" cx="43.95" cy="20.05" r="3.53"></circle><path class="a" d="M14.4 32.15L31.85 49.6"></path></svg>
+            </div>
+          </div>
+          <div class="homepage-section-template-3-content">
+            <div class="text text-subheading">1. chọn loại phụ kiện</div>
+            <div class="text text-heading">gắn bead của bạn lên</div>
+            <div class="text text-body">vòng tay, dây chuyền, nhẫn và nhiều loại phụ kiện khác.</div>
+            <button type="button" class="button button--primary">mua phụ kiện</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="homepage-section">
+      <div class="homepage-section-container">
+        <div class="homepage-section-template-4">
+          <div class="homepage-section-template-3-content">
+            <div>
+              <div class="text text-subheading">Màu tím của sự quyết đoán</div>
+              <div class="text text-title">tin tưởng bản thân mình</div>
+            </div>
+            <div class="text text-body">Hãy cảm nhận sức mạnh nội tại của chính bạn khi khám phá bộ sưu tập các viên đá quý tông màu tím của Trollbeads.
+            </div>
+            <div class="text text-body">Giống như Thạch anh tím, loại đá tượng trưng cho lòng dũng cảm và sự tự tin. Khi đeo loại đá này, bạn sẽ sẵn sàng đối mặt với mọi thách thức cuộc sống mang lại.</div>
+            <div class="text text-body">Hãy mang những loại đá có tông màu Tím bên mình để nhắc nhở bản thân phải luôn tin tưởng chính mình và bước đi thật mạnh mẽ, quyết đoán.</div>
+            <button type="button" class="button button--primary">mua ngay</button>
+          </div>
+          <div class="homepage-section-template-4-image">
+            <img src="https://www.trollbeads.vn/cdn/shop/files/Insp-believe-in-yourself-1_900x.jpg?v=1714640749" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</section>

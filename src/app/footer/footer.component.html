@@ -4,34 +4,70 @@
       <div class="footer-item">
         <div class="footer-item-title">dịch vụ khách hàng</div>
         <ul>
-          <li>Thông tin vận chuyển</li>
-          <li>Thông tin bảo hành</li>
-          <li>Tìm kích cỡ của bạn</li>
-          <li>Chăm sóc trang sức</li>
-          <li>Liên hệ chúng tôi</li>
-          <li>Thư viện</li>
-          <li>Chính sách & Điều khoản</li>
+          <li>
+            <a href="#">Thông tin vận chuyển</a>
+          </li>
+          <li>
+            <a href="#">Thông tin bảo hành</a>
+          </li>
+          <li>
+            <a href="#">Tìm kích cỡ của bạn</a>
+          </li>
+          <li>
+            <a href="#">Chăm sóc trang sức</a>
+          </li>
+          <li>
+            <a href="#">Liên hệ chúng tôi</a>
+          </li>
+          <li>
+            <a href="#">Thư viện</a>
+          </li>
+          <li>
+            <a href="#">Chính sách & Điều khoản</a>
+          </li>
         </ul>
       </div>
       <div class="footer-item">
         <div class="footer-item-title">Tài khoản</div>
         <ul>
-          <li>Tài khoản của tôi</li>
-          <li>Mục yêu thích của tôi</li>
-          <li>Hộp trang sức của tôi</li>
+          <li>
+            <a href="#">Tài khoản của tôi</a>
+          </li>
+          <li>
+            <a href="#">Mục yêu thích của tôi</a>
+          </li>
+          <li>
+            <a href="#">Hộp trang sức của tôi</a>
+          </li>
         </ul>
       </div>
       <div class="footer-item">
         <div class="footer-item-title">Về chúng tôi</div>
         <ul>
-          <li>Trollbeads Concept</li>
-          <li>Câu chuyện thương hiệu</li>
-          <li>Nghê thủ công</li>
-          <li>Uniques</li>
-          <li>Sự kiện</li>
-          <li>Nhà thiết kế</li>
-          <li>Trách nhiệm</li>
-          <li>Tìm của hàng</li>
+          <li>
+            <a href="#">Trollbeads Concept</a>
+          </li>
+          <li>
+            <a href="#">Câu chuyện thương hiệu</a>
+          </li>
+          <li>
+            <a href="#">Nghê thủ công</a>
+          </li>
+          <li>
+            <a href="#">Uniques</a>
+          </li>
+          <li>
+            <a href="#">Sự kiện</a>
+          </li>
+          <li>
+            <a href="#">Nhà thiết kế</a>
+          </li>
+          <li>
+            <a href="#">Trách nhiệm</a>
+          </li>
+          <li>
+            <a href="#">Tìm của hàng</a>
+          </li>
         </ul>
       </div>
       <div class="footer-item">
@@ -95,7 +131,185 @@
         </div>
       </div>
     </div>
-    
+    <div class="footer-mobile-menu">
+      <div class="footer-mobile-item">
+        <div class="footer-mobile-title" (click)="openDropdown(0)">
+          <p>dịch vụ khách hàng</p>
+          <div class="my-offcanvas-body-item-toggle" >
+            <div class="my-offcanvas-body-item-icon" [class.flip-up]="isOpen[0]">
+              <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16"><path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd"></path></svg>
+            </div>
+          </div>
+        </div>
+        <div class="footer-mobile-content" [class.open]="isOpen[0]">
+          <ul>
+            <li>
+              <a href="#">Thông tin vận chuyển</a>
+            </li>
+            <li>
+              <a href="#">Thông tin bảo hành</a>
+            </li>
+            <li>
+              <a href="#">Tìm kích cỡ của bạn</a>
+            </li>
+            <li>
+              <a href="#">Chăm sóc trang sức</a>
+            </li>
+            <li>
+              <a href="#">Liên hệ chúng tôi</a>
+            </li>
+            <li>
+              <a href="#">Thư viện</a>
+            </li>
+            <li>
+              <a href="#">Chính sách & Điều khoản</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <hr>
+      <div class="footer-mobile-item">
+        <div class="footer-mobile-title" (click)="openDropdown(1)">
+          <p>tài khoản</p>
+          <div class="my-offcanvas-body-item-toggle" >
+            <div class="my-offcanvas-body-item-icon" [class.flip-up]="isOpen[1]">
+              <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16"><path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd"></path></svg>
+            </div>
+          </div>
+        </div>
+        <div class="footer-mobile-content" [class.open]="isOpen[1]">
+          <ul>
+            <li>
+              <a href="#">Tài khoản của tôi</a>
+            </li>
+            <li>
+              <a href="#">Mục yêu thích của tôi</a>
+            </li>
+            <li>
+              <a href="#">Hộp trang sức của tôi</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <hr>
+      <div class="footer-mobile-item">
+        <div class="footer-mobile-title" (click)="openDropdown(2)">
+          <p>dịch vụ khách hàng</p>
+          <div class="my-offcanvas-body-item-toggle" >
+            <div class="my-offcanvas-body-item-icon" [class.flip-up]="isOpen[2]">
+              <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16"><path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd"></path></svg>
+            </div>
+          </div>
+        </div>
+        <div class="footer-mobile-content" [class.open]="isOpen[2]">
+          <ul>
+            <li>
+              <a href="#">Trollbeads Concept</a>
+            </li>
+            <li>
+              <a href="#">Câu chuyện thương hiệu</a>
+            </li>
+            <li>
+              <a href="#">Nghê thủ công</a>
+            </li>
+            <li>
+              <a href="#">Uniques</a>
+            </li>
+            <li>
+              <a href="#">Sự kiện</a>
+            </li>
+            <li>
+              <a href="#">Nhà thiết kế</a>
+            </li>
+            <li>
+              <a href="#">Trách nhiệm</a>
+            </li>
+            <li>
+              <a href="#">Tìm của hàng</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <hr>
+      <div class="footer-mobile-item">
+        <div class="footer-mobile-title" (click)="openDropdown(3)">
+          <p>đăng kí nhận bản tin</p>
+          <div class="my-offcanvas-body-item-toggle" >
+            <div class="my-offcanvas-body-item-icon" [class.flip-up]="isOpen[3]">
+              <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16"><path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd"></path></svg>
+            </div>
+          </div>
+        </div>
+        <div class="footer-mobile-content" [class.open]="isOpen[3]">
+          <ul>
+            <ul>
+              <li>
+                Đăng ký nhận bản tin của chúng tôi để nhận được nhiều cảm hứng tuyệt vời, tin tức thú vị và các mẹo & cách phối vòng!
+              </li>
+            </ul>
+            <ul>
+              <li>
+                Bạn có thể rút lại sự đồng ý của mình bất kỳ lúc nào. Đọc thêm trong Chính sách Bảo mật & Cookie của chúng tôi
+              </li>
+            </ul>
+            <div class="footer-email">
+              <input type="text" name="email" id="email" placeholder="Nhập email của bạn" (input)="onEmailInput($event)">
+              <button type="submit">
+                <div *ngIf="isRegister === false">
+                  <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-email" viewBox="0 0 64 64">
+                    <path d="M63 52H1V12h62zM1 12l25.68 24h9.72L63 12M21.82 31.68L1.56 51.16m60.78.78L41.27 31.68"
+                      fill="none"  
+                      stroke="black"  
+                      stroke-width="2">
+                    </path>
+                  </svg>
+                </div>
+                <div class="footer-email-register" *ngIf="isRegister">Đăng ký</div>
+              </button>
+            </div>
+          </ul>
+          <div class="my-offcanvas-footer">
+            <div class="my-offcanvas-footer-item">
+              <a href="#">
+                <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-instagram" viewBox="0 0 32 32">
+                  <path fill="#000" d="M16 3.094c4.206 0 4.7.019 6.363.094 1.538.069 2.369.325 2.925.544.738.287 1.262.625 1.813 1.175s.894 1.075 1.175 1.813c.212.556.475 1.387.544 2.925.075 1.662.094 2.156.094 6.363s-.019 4.7-.094 6.363c-.069 1.538-.325 2.369-.544 2.925-.288.738-.625 1.262-1.175 1.813s-1.075.894-1.813 1.175c-.556.212-1.387.475-2.925.544-1.663.075-2.156.094-6.363.094s-4.7-.019-6.363-.094c-1.537-.069-2.369-.325-2.925-.544-.737-.288-1.263-.625-1.813-1.175s-.894-1.075-1.175-1.813c-.212-.556-.475-1.387-.544-2.925-.075-1.663-.094-2.156-.094-6.363s.019-4.7.094-6.363c.069-1.537.325-2.369.544-2.925.287-.737.625-1.263 1.175-1.813s1.075-.894 1.813-1.175c.556-.212 1.388-.475 2.925-.544 1.662-.081 2.156-.094 6.363-.094zm0-2.838c-4.275 0-4.813.019-6.494.094-1.675.075-2.819.344-3.819.731-1.037.4-1.913.944-2.788 1.819S1.486 4.656 1.08 5.688c-.387 1-.656 2.144-.731 3.825-.075 1.675-.094 2.213-.094 6.488s.019 4.813.094 6.494c.075 1.675.344 2.819.731 3.825.4 1.038.944 1.913 1.819 2.788s1.756 1.413 2.788 1.819c1 .387 2.144.656 3.825.731s2.213.094 6.494.094 4.813-.019 6.494-.094c1.675-.075 2.819-.344 3.825-.731 1.038-.4 1.913-.944 2.788-1.819s1.413-1.756 1.819-2.788c.387-1 .656-2.144.731-3.825s.094-2.212.094-6.494-.019-4.813-.094-6.494c-.075-1.675-.344-2.819-.731-3.825-.4-1.038-.944-1.913-1.819-2.788s-1.756-1.413-2.788-1.819c-1-.387-2.144-.656-3.825-.731C20.812.275 20.275.256 16 .256z"></path><path fill="#000" d="M16 7.912a8.088 8.088 0 0 0 0 16.175c4.463 0 8.087-3.625 8.087-8.088s-3.625-8.088-8.088-8.088zm0 13.338a5.25 5.25 0 1 1 0-10.5 5.25 5.25 0 1 1 0 10.5zM26.294 7.594a1.887 1.887 0 1 1-3.774.002 1.887 1.887 0 0 1 3.774-.003z"></path>
+                </svg>
+              </a>
+            </div>
+            <div class="my-offcanvas-footer-item">
+              <a href="#">
+                <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-facebook" viewBox="0 0 14222 14222">
+                  <path d="M14222 7112c0 3549.352-2600.418 6491.344-6000 7024.72V9168h1657l315-2056H8222V5778c0-562 275-1111 1159-1111h897V2917s-814-139-1592-139c-1624 0-2686 984-2686 2767v1567H4194v2056h1806v4968.72C2600.418 13603.344 0 10661.352 0 7112 0 3184.703 3183.703 1 7111 1s7111 3183.703 7111 7111zm-8222 7025c362 57 733 86 1111 86-377.945 0-749.003-29.485-1111-86.28zm2222 0v-.28a7107.458 7107.458 0 0 1-167.717 24.267A7407.158 7407.158 0 0 0 8222 14137zm-167.717 23.987C7745.664 14201.89 7430.797 14223 7111 14223c319.843 0 634.675-21.479 943.283-62.013z"></path>
+                </svg>
+              </a>
+            </div>
+            <div class="my-offcanvas-footer-item">
+              <a href="#">
+                <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-youtube" viewBox="0 0 21 20">
+                  <path fill="#000" d="M-.196 15.803q0 1.23.812 2.092t1.977.861h14.946q1.165 0 1.977-.861t.812-2.092V3.909q0-1.23-.82-2.116T17.539.907H2.593q-1.148 0-1.969.886t-.82 2.116v11.894zm7.465-2.149V6.058q0-.115.066-.18.049-.016.082-.016l.082.016 7.153 3.806q.066.066.066.164 0 .066-.066.131l-7.153 3.806q-.033.033-.066.033-.066 0-.098-.033-.066-.066-.066-.131z"></path>
+                </svg>
+              </a>
+            </div>
+            <div class="my-offcanvas-footer-item">
+              <a href="#">
+                <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-pinterest" viewBox="0 0 256 256">
+                  <path d="M0 128.002c0 52.414 31.518 97.442 76.619 117.239-.36-8.938-.064-19.668 2.228-29.393 2.461-10.391 16.47-69.748 16.47-69.748s-4.089-8.173-4.089-20.252c0-18.969 10.994-33.136 24.686-33.136 11.643 0 17.268 8.745 17.268 19.217 0 11.704-7.465 29.211-11.304 45.426-3.207 13.578 6.808 24.653 20.203 24.653 24.252 0 40.586-31.149 40.586-68.055 0-28.054-18.895-49.052-53.262-49.052-38.828 0-63.017 28.956-63.017 61.3 0 11.152 3.288 19.016 8.438 25.106 2.368 2.797 2.697 3.922 1.84 7.134-.614 2.355-2.024 8.025-2.608 10.272-.852 3.242-3.479 4.401-6.409 3.204-17.884-7.301-26.213-26.886-26.213-48.902 0-36.361 30.666-79.961 91.482-79.961 48.87 0 81.035 35.364 81.035 73.325 0 50.213-27.916 87.726-69.066 87.726-13.819 0-26.818-7.47-31.271-15.955 0 0-7.431 29.492-9.005 35.187-2.714 9.869-8.026 19.733-12.883 27.421a127.897 127.897 0 0 0 36.277 5.249c70.684 0 127.996-57.309 127.996-128.005C256.001 57.309 198.689 0 128.005 0 57.314 0 0 57.309 0 128.002z"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-region">
+      <button type="button" class="faux-select disclosure__toggle" aria-expanded="false" aria-controls="LangList-footer" aria-describedby="LangHeading-footer" data-disclosure-toggle="">
+        <span class="currency-flag currency-flag--vi" data-flag="vi" aria-hidden="true"></span>
+        <span class="disclosure-list__label">
+          Tiếng việt
+      </span>
+        <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16"><path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd"></path></svg>
+      </button>
+    </div>
     <div class="footer-payments">
       <ul class="inline-list payment-icons footer__section"><li class="icon--payment">
         <svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pi-american_express" viewBox="0 0 38 24" width="38" height="24"><title id="pi-american_express">American Express</title><path fill="#000" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3Z" opacity=".07"></path><path fill="#006FCF" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32Z"></path><path fill="#FFF" d="M22.012 19.936v-8.421L37 11.528v2.326l-1.732 1.852L37 17.573v2.375h-2.766l-1.47-1.622-1.46 1.628-9.292-.02Z"></path><path fill="#006FCF" d="M23.013 19.012v-6.57h5.572v1.513h-3.768v1.028h3.678v1.488h-3.678v1.01h3.768v1.531h-5.572Z"></path><path fill="#006FCF" d="m28.557 19.012 3.083-3.289-3.083-3.282h2.386l1.884 2.083 1.89-2.082H37v.051l-3.017 3.23L37 18.92v.093h-2.307l-1.917-2.103-1.898 2.104h-2.321Z"></path><path fill="#FFF" d="M22.71 4.04h3.614l1.269 2.881V4.04h4.46l.77 2.159.771-2.159H37v8.421H19l3.71-8.421Z"></path><path fill="#006FCF" d="m23.395 4.955-2.916 6.566h2l.55-1.315h2.98l.55 1.315h2.05l-2.904-6.566h-2.31Zm.25 3.777.875-2.09.873 2.09h-1.748Z"></path><path fill="#006FCF" d="M28.581 11.52V4.953l2.811.01L32.84 9l1.456-4.046H37v6.565l-1.74.016v-4.51l-1.644 4.494h-1.59L30.35 7.01v4.51h-1.768Z"></path></svg>
@@ -118,6 +332,9 @@
       </li><li class="icon--payment">
         <svg viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" role="img" width="38" height="24" aria-labelledby="pi-visa"><title id="pi-visa">Visa</title><path opacity=".07" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"></path><path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32"></path><path d="M28.3 10.1H28c-.4 1-.7 1.5-1 3h1.9c-.3-1.5-.3-2.2-.6-3zm2.9 5.9h-1.7c-.1 0-.1 0-.2-.1l-.2-.9-.1-.2h-2.4c-.1 0-.2 0-.2.2l-.3.9c0 .1-.1.1-.1.1h-2.1l.2-.5L27 8.7c0-.5.3-.7.8-.7h1.5c.1 0 .2 0 .2.2l1.4 6.5c.1.4.2.7.2 1.1.1.1.1.1.1.2zm-13.4-.3l.4-1.8c.1 0 .2.1.2.1.7.3 1.4.5 2.1.4.2 0 .5-.1.7-.2.5-.2.5-.7.1-1.1-.2-.2-.5-.3-.8-.5-.4-.2-.8-.4-1.1-.7-1.2-1-.8-2.4-.1-3.1.6-.4.9-.8 1.7-.8 1.2 0 2.5 0 3.1.2h.1c-.1.6-.2 1.1-.4 1.7-.5-.2-1-.4-1.5-.4-.3 0-.6 0-.9.1-.2 0-.3.1-.4.2-.2.2-.2.5 0 .7l.5.4c.4.2.8.4 1.1.6.5.3 1 .8 1.1 1.4.2.9-.1 1.7-.9 2.3-.5.4-.7.6-1.4.6-1.4 0-2.5.1-3.4-.2-.1.2-.1.2-.2.1zm-3.5.3c.1-.7.1-.7.2-1 .5-2.2 1-4.5 1.4-6.7.1-.2.1-.3.3-.3H18c-.2 1.2-.4 2.1-.7 3.2-.3 1.5-.6 3-1 4.5 0 .2-.1.2-.3.2M5 8.2c0-.1.2-.2.3-.2h3.4c.5 0 .9.3 1 .8l.9 4.4c0 .1 0 .1.1.2 0-.1.1-.1.1-.1l2.1-5.1c-.1-.1 0-.2.1-.2h2.1c0 .1 0 .1-.1.2l-3.1 7.3c-.1.2-.1.3-.2.4-.1.1-.3 0-.5 0H9.7c-.1 0-.2 0-.2-.2L7.9 9.5c-.2-.2-.5-.5-.9-.6-.6-.3-1.7-.5-1.9-.5L5 8.2z" fill="#142688"></path></svg>
       </li></ul>
+    </div>
+    <div class="text footer-right">
+      © 2024 Trollbeads APAC
     </div>
   </div>
 </section>

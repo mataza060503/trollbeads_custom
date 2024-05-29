@@ -9,6 +9,16 @@ import { FooterComponent } from './footer/footer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbOffcanvas } from '@ng-bootstrap/ng-bootstrap';
+import { HomepageComponent } from './homepage/homepage.component';
+import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database'
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore'
+
+import { environment } from '../environment/environment';
+
+
 
 
 
@@ -17,7 +27,8 @@ import { NgbOffcanvas } from '@ng-bootstrap/ng-bootstrap';
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    HomepageComponent
   ],
   imports: [
     BrowserModule,
@@ -26,6 +37,11 @@ import { NgbOffcanvas } from '@ng-bootstrap/ng-bootstrap';
 
     NgbModule,
     FormsModule,
+    NgbCarouselModule,
+    SlickCarouselModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
