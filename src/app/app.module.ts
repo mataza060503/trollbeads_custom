@@ -16,7 +16,10 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database'
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore'
 
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+
 import { environment } from '../environment/environment';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 
 
@@ -42,8 +45,12 @@ import { environment } from '../environment/environment';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireModule,
+
+    MatProgressBarModule,
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

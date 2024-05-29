@@ -371,6 +371,7 @@ p {
     }
   }
   &-carousel {
+    margin: 30px 0px;
     & .slide {
       & .product {
         margin: 10%;
@@ -384,7 +385,25 @@ p {
         }
       }
     }
+    &-percentage {
+      width: 60%;
+      margin: 0px auto;
+    }
   }
+}
+
+::ng-deep mat-progress-bar {
+  border-radius: 100rem !important;
+}
+
+::ng-deep .custom-progress-bar .mat-progress-bar-fill::before {
+  background-color: #6F757F !important;
+}
+::ng-deep .custom-progress-bar .mat-progress-bar-fill::after {
+  background-color: #6F757F !important;
+}
+::ng-deep .mdc-linear-progress__bar.mdc-linear-progress__primary-bar .mdc-linear-progress__bar-inner {
+  border-color: black;
 }
 
 @media screen and (max-width: 769px) {

@@ -19,7 +19,8 @@
                     #slickModal="slick-carousel" 
                     [config]="heroSlideConfig" 
                     (init)="slickInit($event)"
-                    (breakpoint)="breakpoint($event)">
+                    (breakpoint)="breakpoint($event)"
+                    (afterChange)="updateHeroProgressBar($event)">
             <div ngxSlickItem class="slide" *ngFor="let product of signatureProducts; let i = index">
               <div class="product">
                 <div class="product-container">
@@ -40,7 +41,9 @@
               </div>
             </div>
           </ngx-slick-carousel>
-          
+          <div class="hero-carousel-percentage">
+            <mat-progress-bar mode="determinate" [value]="heroCarouselPercentage"></mat-progress-bar>
+          </div>
         </div>
       </div>
     </div>

@@ -31,6 +31,8 @@ export class HomepageComponent implements OnInit, AfterViewInit{
   signatureProducts: Product[] = []
   banners: string[] = []
 
+  heroCarouselPercentage: number = 0
+
 	@ViewChild('carousel', { static: true }) carousel!: NgbCarousel;
   @ViewChild('heroVideo') video!: ElementRef<HTMLVideoElement>;
 
@@ -88,6 +90,7 @@ export class HomepageComponent implements OnInit, AfterViewInit{
           this.signatureProducts.push(product)
           this.isSignatureProductClicked.push(false)
         });
+        this.heroCarouselPercentage = 1/(this.signatureProducts.length)*100
         console.log(this.productList)
       }
     })
@@ -114,7 +117,7 @@ export class HomepageComponent implements OnInit, AfterViewInit{
     "slidesToShow": 3, 
     "slidesToScroll": 1,
     "autoplay": true,
-    "autoplaySpeed": 5000,
+    "autoplaySpeed": 3000,
   }
 
 	slideConfig = {
@@ -130,6 +133,17 @@ export class HomepageComponent implements OnInit, AfterViewInit{
   
   breakpoint(e: any) {
     console.log('breakpoint');
+  }
+
+  updateHeroProgressBar(event: any) {
+    const currentIndex = event.currentSlide;
+    const totalSlides = this.signatureProducts.length;
+
+    if (currentIndex === 0) {
+      this.heroCarouselPercentage = (1 / totalSlides) * 100;
+    } else {
+      this.heroCarouselPercentage = ((currentIndex + 1) / totalSlides) * 100;
+    }
   }
 
   favoriteClick(index: number) {
