@@ -3,6 +3,7 @@ import { NgbCarousel, NgbSlideEvent, NgbSlideEventSource } from '@ng-bootstrap/n
 import { ProductService } from '../../services/product.service';
 import { Product } from '../../models/item';
 import { BannerService } from '../../services/banner.service';
+import { arrow } from '@popperjs/core';
 
 @Component({
   selector: 'app-homepage',
@@ -25,10 +26,16 @@ export class HomepageComponent implements OnInit, AfterViewInit{
   isClicked: boolean[] = []
   isProductListClicked: boolean[] = []
   isSignatureProductClicked: boolean[] = []
+  isBeadClicked: boolean[] = []
+  isSilverBeadClicked: boolean[] = []
+
+  isOpenTemplate5: boolean = false
 
   products: Product[] = []
   productList: Product[] = []
   signatureProducts: Product[] = []
+  beads: Product[] = []
+  silverBeads: Product[] = []
   banners: string[] = []
 
   heroCarouselPercentage: number = 0
@@ -41,6 +48,8 @@ export class HomepageComponent implements OnInit, AfterViewInit{
     this.loadProducts()
     this.loadProductList()
     this.loadSignatureProduct()
+    this.loadBeads()
+    this.loadSilverBeads()
   }
 
   playVideo() {
@@ -62,7 +71,6 @@ export class HomepageComponent implements OnInit, AfterViewInit{
           this.products.push(product)
           this.isClicked.push(false)
         });
-        console.log(this.products)
       }
     })
   }
@@ -76,7 +84,6 @@ export class HomepageComponent implements OnInit, AfterViewInit{
           this.productList.push(product)
           this.isProductListClicked.push(false)
         });
-        console.log(this.productList)
       }
     })
   }
@@ -91,7 +98,36 @@ export class HomepageComponent implements OnInit, AfterViewInit{
           this.isSignatureProductClicked.push(false)
         });
         this.heroCarouselPercentage = 1/(this.signatureProducts.length)*100
-        console.log(this.productList)
+      }
+    })
+  }
+
+  loadBeads() {
+    this.productService.getAllBeads().snapshotChanges().subscribe({
+      next: (data) => {
+        this.beads = []
+        data.forEach(item => {
+          let product = item.payload.toJSON() as Product
+          this.beads.push(product)
+          this.isBeadClicked.push(false)
+        });
+        this.heroCarouselPercentage = 1/(this.signatureProducts.length)*100
+        console.log(this.beads)
+      }
+    })
+  }
+
+  loadSilverBeads() {
+    this.productService.getAllSilverBeads().snapshotChanges().subscribe({
+      next: (data) => {
+        this.silverBeads = []
+        data.forEach(item => {
+          let product = item.payload.toJSON() as Product
+          this.silverBeads.push(product)
+          this.isSilverBeadClicked.push(false)
+        });
+        this.heroCarouselPercentage = 1/(this.signatureProducts.length)*100
+        console.log(this.silverBeads)
       }
     })
   }
@@ -114,10 +150,39 @@ export class HomepageComponent implements OnInit, AfterViewInit{
   }
 
   heroSlideConfig = {
-    "slidesToShow": 3, 
-    "slidesToScroll": 1,
-    "autoplay": true,
-    "autoplaySpeed": 3000,
+    slidesToShow: 4, 
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    arrow: false,
+    Infinity: true,
+    responsive: [
+      {
+        breakpoint: 769,
+        settings: {
+          slidesToShow: 2, 
+          slidesToScroll: 1,
+        }
+      }
+    ]
+  };
+
+  template5Config = {
+    slidesToShow: 3, 
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    arrows: false,
+    Infinity: true,
+    responsive: [
+      {
+        breakpoint: 769,
+        settings: {
+          slidesToShow: 1, 
+          slidesToScroll: 1,
+        }
+      }
+    ]
   }
 
 	slideConfig = {
@@ -148,6 +213,10 @@ export class HomepageComponent implements OnInit, AfterViewInit{
 
   favoriteClick(index: number) {
     this.isClicked[index] = !this.isClicked[index]
+  }
+
+  activateDropdown() {
+    this.isOpenTemplate5 = !this.isOpenTemplate5
   }
   
   ///** ORTHER FUNCTION *////

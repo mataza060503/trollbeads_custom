@@ -120,6 +120,12 @@ i {
     &:not(:hover):before {
       right: -150%; // Keep the flash outside the button on the right when not hovered
     }
+
+    &--outliner {
+      outline: solid 2px var(--primary-color-2);
+      color: var(--primary-color-2);
+      background-color: transparent;
+    }
   }
 }
 
