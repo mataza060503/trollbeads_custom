@@ -78,7 +78,7 @@
             <img src="{{banners[0]}}" alt="">
             <div class="homepage-section-banner-text-wrap">
               <p class="text text-subheading">silver beads</p>
-              <button class="button button--primary button--primary--outliner" (click)="activateDropdown()">xem thêm</button>
+              <button class="button button--primary button--primary--outliner-2" (click)="activateDropdown()">xem thêm</button>
             </div>
           </div>
           <div class="homepage-section-template-5-container">
@@ -131,10 +131,117 @@
             </div>
           </div>
         </div>
+        <button class="button button--primary button--primary--outliner-1 homepage-section-template-5-btn" [class.active]="isOpenTemplate5" (click)="activateDropdown()">Thu gọn</button>
       </div>
     </div>
     <div class="homepage-section">
-      <div class="homepage-section-container" *ngIf="products.length > 0">
+      <div class="homepage-section-container">
+        <div class="homepage-section-template-5 homepage-section-template-5-reverse">      
+          <div class="homepage-section-template-5-container">
+            <ngx-slick-carousel class="homepage-section-template-5-carousel" 
+                    #slickModal="slick-carousel" 
+                    [config]="template5CustomConfig" 
+                    (init)="slickInit($event)"
+                    (breakpoint)="breakpoint($event)"
+                    (afterChange)="updateHeroProgressBar($event)">
+              <div ngxSlickItem class="slide" *ngFor="let product of beads; let i = index">
+                <div class="product">
+                  <div class="product-container">
+                    <span class="material-symbols-outlined icon-favorite" 
+                          [class.favorite]="isClicked[i]" 
+                          (click)="favoriteClick(i)">
+                      favorite
+                    </span>
+                    <div class="product-image">
+                      <img src="{{product.images[0]}}" alt="" class="product-image-default" *ngIf="product.images[0]">
+                      <img src="{{product.images[1]}}" alt="" class="product-image-hover" style="position: absolute;" *ngIf="product.images[1]">
+                    </div>
+                    <div class="product-content">
+                      <div class="text-product-title">{{product.name}}</div>
+                      <div class="text-product-price">{{formatPrice(product.price)}}đ</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ngx-slick-carousel>
+          </div>
+          <div class="homepage-section-banner">
+            <img src="{{banners[1]}}" alt="">
+            <div class="homepage-section-banner-text-wrap">
+              <p class="text text-subheading">special beads</p>
+              <button class="button button--primary button--primary--outliner-2" (click)="activateDropdownTL5Custom()">xem thêm</button>
+            </div>
+          </div>
+        </div>
+        <div class="homepage-section-template-5-dropdown" [class.active]="isOpenTemplate5Custom">
+          <div class="homepage-section-template-1">
+            <div class="product" *ngFor="let product of beads;let i=index">
+              <div class="product-container">
+                <span class="material-symbols-outlined icon-favorite" 
+                      [class.favorite]="isClicked[i]" 
+                      (click)="favoriteClick(i)">
+                  favorite
+                </span>
+                <div class="product-image">
+                  <img src="{{product.images[0]}}" alt="" class="product-image-default" *ngIf="product.images[0]">
+                  <img src="{{product.images[1]}}" alt="" class="product-image-hover" style="position: absolute;" *ngIf="product.images[1]">
+                </div>
+                <div class="product-content">
+                  <div class="text-product-title">{{product.name}}</div>
+                  <div class="text-product-price">{{formatPrice(product.price)}}đ</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="button button--primary button--primary--outliner-1 homepage-section-template-5-btn" [class.active]="isOpenTemplate5Custom" (click)="activateDropdownTL5Custom()">Thu gọn</button>
+      </div>
+    </div>
+    <div class="homepage-section">
+
+      <div class="homepage-section-container">
+
+        <div class="homepage-section-template-6">
+          <div class="homepage-section-template-6-media">
+            <video muted loop #mediaTL6>
+              <source src="./assets/video/EOL-SOME 2.mp4" type="">
+            </video>
+          </div>
+          <div class="banner">
+            <p class="homepage-section-banner-title">NHỮNG KÍ ỨC ĐẶC BIỆT</p>
+            <p class="homepage-section-banner-content">Những kí ức là tạo nên sự hạnh phúc của bạn. Lưu giữ những khoảnh khắc quan trọng và tình bạn với các sản phẩm trang sức giúp kể câu chuyện của bạn và nhắc nhở bạn về những điều quan trọng trong đời.</p>
+            <button class="button button--primary">Tìm hiểu thêm</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="homepage-section">
+      <div class="homepage-section-container">
+        <div class="text text-title">TỰ TAY THIẾT KẾ SET VÒNG CỦA RIÊNG BẠN CHỈ VỚI BA BƯỚC ĐƠN GIẢN!</div>
+        <div class="homepage-section-template-3">
+          <div class="homepage-section-template-3-image">
+            <img src="https://www.trollbeads.vn/cdn/shop/files/build-jewellery-2024-hotspot-01.jpg?v=1713176762&width=1920" alt="">
+            <div class="homepage-section-template-3-tag">
+              <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-tag" viewBox="0 0 64 64"><defs><style>.a{fill:none;stroke:white;stroke-width:2px}</style></defs><path class="a" d="M46.69 10.34l-10.55.07-25.8 25.8 17.45 17.45 25.8-25.8.07-10.55-6.97-6.97z"></path><circle class="a" cx="43.95" cy="20.05" r="3.53"></circle><path class="a" d="M14.4 32.15L31.85 49.6"></path></svg>
+            </div>
+            <div class="homepage-section-template-3-tag">
+              <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-tag" viewBox="0 0 64 64"><defs><style>.a{fill:none;stroke:white;stroke-width:2px}</style></defs><path class="a" d="M46.69 10.34l-10.55.07-25.8 25.8 17.45 17.45 25.8-25.8.07-10.55-6.97-6.97z"></path><circle class="a" cx="43.95" cy="20.05" r="3.53"></circle><path class="a" d="M14.4 32.15L31.85 49.6"></path></svg>
+            </div>
+            <div class="homepage-section-template-3-tag">
+              <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-tag" viewBox="0 0 64 64"><defs><style>.a{fill:none;stroke:white;stroke-width:2px}</style></defs><path class="a" d="M46.69 10.34l-10.55.07-25.8 25.8 17.45 17.45 25.8-25.8.07-10.55-6.97-6.97z"></path><circle class="a" cx="43.95" cy="20.05" r="3.53"></circle><path class="a" d="M14.4 32.15L31.85 49.6"></path></svg>
+            </div>
+          </div>
+          <div class="homepage-section-template-3-content">
+            <div class="text text-subheading">1. chọn loại phụ kiện</div>
+            <div class="text text-heading">gắn bead của bạn lên</div>
+            <div class="text text-body">vòng tay, dây chuyền, nhẫn và nhiều loại phụ kiện khác.</div>
+            <button type="button" class="button button--primary">mua phụ kiện</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="homepage-section">
+      <div class="homepage-section-container" *ngIf="products.length < 0">
         <!-- <div class="homepage-section-template-1">
           <div class="homepage-section-banner">
             <img src="{{banners[0]}}" alt="">
@@ -187,7 +294,7 @@
           </div>
         </div> -->
         <div class="homepage-section-template-2">
-          <div class="product">
+          <!-- <div class="product">
             <div class="product-container">
               <span class="material-symbols-outlined icon-favorite" [class.favorite]="isClicked[3]" (click)="favoriteClick(3)">
                 favorite
@@ -216,13 +323,13 @@
                 <div class="text-product-price"> {{formatPrice(products[4].price)}}đ </div>
               </div>
             </div>
-          </div>
+          </div> -->
           <div class="homepage-section-banner-2">
             <p class="homepage-section-banner-title">NHỮNG KÍ ỨC ĐẶC BIỆT</p>
             <p class="homepage-section-banner-content">Những kí ức là tạo nên sự hạnh phúc của bạn. Lưu giữ những khoảnh khắc quan trọng và tình bạn với các sản phẩm trang sức giúp kể câu chuyện của bạn và nhắc nhở bạn về những điều quan trọng trong đời.</p>
           </div>
         </div>
-        <div class="homepage-section-template-1">
+        <!-- <div class="homepage-section-template-1">
           <div class="homepage-section-banner">
             <img src="{{banners[1]}}" alt="">
           </div>
@@ -271,7 +378,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
         <div class="homepage-section-template-1">
           <div class="product">
             <div class="product-container">
@@ -344,6 +451,28 @@
         </div>
       </div>
     </div>
+    <div class="homepage-section" style="background-color: #121212;box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">
+      <div class="homepage-section-container">
+        <div class="homepage-section-template-4">
+          <div class="homepage-section-template-3-content">
+            <div>
+              <div class="text text-subheading">Màu tím của sự quyết đoán</div>
+              <div class="text text-title">tin tưởng bản thân mình</div>
+            </div>
+            <div class="description">
+              <div class="text text-body">Hãy cảm nhận sức mạnh nội tại của chính bạn khi khám phá bộ sưu tập các viên đá quý tông màu tím của Trollbeads.
+              </div>
+              <div class="text text-body">Giống như Thạch anh tím, loại đá tượng trưng cho lòng dũng cảm và sự tự tin. Khi đeo loại đá này, bạn sẽ sẵn sàng đối mặt với mọi thách thức cuộc sống mang lại.</div>
+              <div class="text text-body">Hãy mang những loại đá có tông màu Tím bên mình để nhắc nhở bản thân phải luôn tin tưởng chính mình và bước đi thật mạnh mẽ, quyết đoán.</div>
+            </div>
+            <button type="button" class="button button--primary button--primary--outliner-2">mua ngay</button>
+          </div>
+          <div class="homepage-section-template-4-image">
+            <img src="https://www.trollbeads.vn/cdn/shop/files/Insp-believe-in-yourself-1_900x.jpg?v=1714640749" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="homepage-section">
       <div class="homepage-section-container">
         <div class="homepage-section-article">
@@ -365,51 +494,6 @@
           </p>
           <p class="text text-body text-center"><i>Every story has a bead.
           </i></p>
-        </div>
-      </div>
-    </div>
-    <div class="homepage-section">
-      <div class="homepage-section-container">
-        <div class="text text-title">TỰ TAY THIẾT KẾ SET VÒNG CỦA RIÊNG BẠN CHỈ VỚI BA BƯỚC ĐƠN GIẢN!</div>
-        <div class="homepage-section-template-3">
-          <div class="homepage-section-template-3-image">
-            <img src="https://www.trollbeads.vn/cdn/shop/files/build-jewellery-2024-hotspot-01.jpg?v=1713176762&width=1920" alt="">
-            <div class="homepage-section-template-3-tag">
-              <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-tag" viewBox="0 0 64 64"><defs><style>.a{fill:none;stroke:white;stroke-width:2px}</style></defs><path class="a" d="M46.69 10.34l-10.55.07-25.8 25.8 17.45 17.45 25.8-25.8.07-10.55-6.97-6.97z"></path><circle class="a" cx="43.95" cy="20.05" r="3.53"></circle><path class="a" d="M14.4 32.15L31.85 49.6"></path></svg>
-            </div>
-            <div class="homepage-section-template-3-tag">
-              <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-tag" viewBox="0 0 64 64"><defs><style>.a{fill:none;stroke:white;stroke-width:2px}</style></defs><path class="a" d="M46.69 10.34l-10.55.07-25.8 25.8 17.45 17.45 25.8-25.8.07-10.55-6.97-6.97z"></path><circle class="a" cx="43.95" cy="20.05" r="3.53"></circle><path class="a" d="M14.4 32.15L31.85 49.6"></path></svg>
-            </div>
-            <div class="homepage-section-template-3-tag">
-              <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-tag" viewBox="0 0 64 64"><defs><style>.a{fill:none;stroke:white;stroke-width:2px}</style></defs><path class="a" d="M46.69 10.34l-10.55.07-25.8 25.8 17.45 17.45 25.8-25.8.07-10.55-6.97-6.97z"></path><circle class="a" cx="43.95" cy="20.05" r="3.53"></circle><path class="a" d="M14.4 32.15L31.85 49.6"></path></svg>
-            </div>
-          </div>
-          <div class="homepage-section-template-3-content">
-            <div class="text text-subheading">1. chọn loại phụ kiện</div>
-            <div class="text text-heading">gắn bead của bạn lên</div>
-            <div class="text text-body">vòng tay, dây chuyền, nhẫn và nhiều loại phụ kiện khác.</div>
-            <button type="button" class="button button--primary">mua phụ kiện</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="homepage-section">
-      <div class="homepage-section-container">
-        <div class="homepage-section-template-4">
-          <div class="homepage-section-template-3-content">
-            <div>
-              <div class="text text-subheading">Màu tím của sự quyết đoán</div>
-              <div class="text text-title">tin tưởng bản thân mình</div>
-            </div>
-            <div class="text text-body">Hãy cảm nhận sức mạnh nội tại của chính bạn khi khám phá bộ sưu tập các viên đá quý tông màu tím của Trollbeads.
-            </div>
-            <div class="text text-body">Giống như Thạch anh tím, loại đá tượng trưng cho lòng dũng cảm và sự tự tin. Khi đeo loại đá này, bạn sẽ sẵn sàng đối mặt với mọi thách thức cuộc sống mang lại.</div>
-            <div class="text text-body">Hãy mang những loại đá có tông màu Tím bên mình để nhắc nhở bản thân phải luôn tin tưởng chính mình và bước đi thật mạnh mẽ, quyết đoán.</div>
-            <button type="button" class="button button--primary">mua ngay</button>
-          </div>
-          <div class="homepage-section-template-4-image">
-            <img src="https://www.trollbeads.vn/cdn/shop/files/Insp-believe-in-yourself-1_900x.jpg?v=1714640749" alt="">
-          </div>
         </div>
       </div>
     </div>

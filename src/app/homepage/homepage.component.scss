@@ -24,8 +24,7 @@
     &-container {
       display: flex;
       flex-direction: column;
-      padding: 0px 40px;
-      gap: 30px;
+      padding: 10px 40px;
     }
     &-template {
       &-1 {
@@ -115,6 +114,16 @@
         grid-template-columns: 1fr 1fr;
         margin: 0 6%;
         margin-bottom: 30px;
+        transition: max-height 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        & div {
+          color: var(--primary-color-2) !important;
+        }
+        & .description {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          
+        }
         &-image {
           display: flex;
           justify-content: center;
@@ -123,6 +132,7 @@
           & img {
             width: 100%;
             height: 100%;
+            object-fit: contain;
           }
         }
         
@@ -134,7 +144,7 @@
       &-5 {
         display: grid;
         grid-template-columns: 25% 75%;
-
+        margin-bottom: 30px;
         & .homepage-section-banner {
           width: 100%;
           height: 100%;
@@ -173,27 +183,118 @@
               }
             }
           }
+          & .slick-dots {
+            width: 10px;
+            height: 2px;
+            background-color: #6F757F;
+          }
         }
         &-container {
           display:flex;
           align-items:center;
           justify-content:center;
           flex-direction:column;
-          height: 1500px;
-          & .hero-carousel-percentage {
-            width: 100%;
-            padding: 20px 0px;
-          }
+          
         }
         &-dropdown {
+          margin: 0px;
+          display: flex;
+          flex-direction: column;
+          padding: 0 2px;
+          padding-right: 10px;
           max-height: 0;
-          overflow: hidden;
-          transition: max-height 0.5s cubic-bezier(0.25, 1, 0.5, 1); 
-          &.active {
-            max-height: 100%; 
-            transition: max-height 0.5s cubic-bezier(0.5, 1, 0.25, 1); // Custom timing function
+          overflow: auto;
+          transition: max-height 0.5s cubic-bezier(0.25, 1, 0.5, 1), margin 0.5s cubic-bezier(0.25, 1, 0.5, 1) ; 
+          position: relative;
+          &::-webkit-scrollbar {
+            width: 6px;
           }
-        }        
+          &::-webkit-scrollbar-track {
+            background: transparent;
+          }
+          &::-webkit-scrollbar-thumb {
+            background: var(--primary-color-1); 
+          }
+          &::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-color-1); 
+          }
+          &.active {
+            margin: 30px 0px;
+            padding: 0 2px;
+            padding-right: 10px;
+            max-height: 800px; 
+            max-width: 100%; 
+            transition: max-height 0.5s cubic-bezier(0.5, 1, 0.25, 1), margin 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+            overflow-y: auto;
+            &::-webkit-scrollbar {
+              width: 6px;
+            }
+            &::-webkit-scrollbar-track {
+              background: transparent;
+            }
+            &::-webkit-scrollbar-thumb {
+              background: var(--primary-color-1); 
+            }
+            &::-webkit-scrollbar-thumb:hover {
+              background: var(--primary-color-1); 
+            }
+          }
+          & .homepage-section-template-1 {
+            border-left: solid 2px var(--primary-color-1);
+            border-right: solid 2px var(--primary-color-1);
+            padding: 0px 10px;
+            position: relative;
+          }
+        }
+        &-btn {
+          visibility: hidden;
+          transition: visibility 0.5s;
+          &.active {
+            visibility: visible;
+            transition: visibility 0.5s;
+          }
+        }  
+        &-reverse {
+          display: grid;
+          grid-template-columns: 75% 25%;
+        }      
+      }
+      &-6 {
+        display: grid;
+        grid-template-columns: 60% 40%;
+        height: 100%;
+        margin-bottom: 10%;
+        &-media {
+          width: 100%;
+          height: 100%;
+          z-index: 10;
+          & video {
+            width: 100%;
+            height: 100%;
+            max-width: 800px;
+            object-fit: cover;
+            object-position: center;
+            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+          }
+        }
+        & .banner {
+          border: solid 2px #1c1d1d;
+          height: fit-content;
+          width: 105%;
+          transform: translate(-5%, 10%);
+          z-index: 5;
+          padding: 12% 12%;
+          display:flex;
+          align-items:start;
+          justify-content:center;
+          flex-direction:column;
+          text-align: left;
+          gap: 20px;
+          margin-bottom: 10%;
+          & p {
+            text-align: left;
+          }
+        }
       }
     }
     &-banner {
@@ -250,6 +351,36 @@
     }
   }
 }
+
+// Customize Slick Dots
+::ng-deep .slick-dots {
+  bottom: -30px; // Adjust positioning if needed
+  li {
+    margin: 0 10px; // Adjust spacing between dots if needed
+
+    &.slick-active {
+      button {
+        background-color: #000; // Active dot color
+      }
+    }
+
+    button {
+      width: 100%;  // Width of the dash
+      max-width: 20px;
+      height: 2px;  // Height of the dash
+      background-color: #ccc; // Default color
+      border: none; // Remove default border
+      padding: 0; // Remove padding
+      margin: auto; // Remove margin
+      border-radius: 0; // Remove border radius to make it a rectangle
+    }
+  }
+}
+
+::ng-deep .slick-dots li button:before {
+  font-size: 0px;
+}
+
 
 .product {
   &-container {
@@ -581,6 +712,29 @@ p {
         }
       }
       
+    }
+  }
+  ::ng-deep .slick-dots {
+    bottom: -30px; // Adjust positioning if needed
+    li {
+      margin: 0 5px; // Adjust spacing between dots if needed
+  
+      &.slick-active {
+        button {
+          background-color: #000; // Active dot color
+        }
+      }
+  
+      button {
+        width: 100%;  // Width of the dash
+        max-width: 10px;
+        height: 2px;  // Height of the dash
+        background-color: #ccc; // Default color
+        border: none; // Remove default border
+        padding: 0; // Remove padding
+        margin: auto; // Remove margin
+        border-radius: 0; // Remove border radius to make it a rectangle
+      }
     }
   }
 }

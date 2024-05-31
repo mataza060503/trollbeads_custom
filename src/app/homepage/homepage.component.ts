@@ -30,6 +30,7 @@ export class HomepageComponent implements OnInit, AfterViewInit{
   isSilverBeadClicked: boolean[] = []
 
   isOpenTemplate5: boolean = false
+  isOpenTemplate5Custom: boolean = false
 
   products: Product[] = []
   productList: Product[] = []
@@ -42,6 +43,7 @@ export class HomepageComponent implements OnInit, AfterViewInit{
 
 	@ViewChild('carousel', { static: true }) carousel!: NgbCarousel;
   @ViewChild('heroVideo') video!: ElementRef<HTMLVideoElement>;
+  @ViewChild('mediaTL6') videoTL6!: ElementRef<HTMLVideoElement>;
 
   constructor(private productService: ProductService, private bannerService: BannerService) {
     this.loadBanners()
@@ -54,8 +56,11 @@ export class HomepageComponent implements OnInit, AfterViewInit{
 
   playVideo() {
     const media = this.video.nativeElement;
-    media.muted = true; // without this line it's not working although I have "muted" in HTML
+    const mediaTL6 = this.videoTL6.nativeElement;
+    media.muted = true;
+    mediaTL6.muted = true;
     media.play();
+    mediaTL6.play()
   }
 
   ngAfterViewInit(): void {
@@ -174,6 +179,27 @@ export class HomepageComponent implements OnInit, AfterViewInit{
     autoplaySpeed: 3000,
     arrows: false,
     Infinity: true,
+    dots: true,
+    responsive: [
+      {
+        breakpoint: 769,
+        settings: {
+          slidesToShow: 1, 
+          slidesToScroll: 1,
+        }
+      }
+    ]
+  }
+
+  template5CustomConfig = {
+    slidesToShow: 3, 
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    arrows: false,
+    Infinity: true,
+    dots: true,
+    rtl: false,
     responsive: [
       {
         breakpoint: 769,
@@ -217,6 +243,9 @@ export class HomepageComponent implements OnInit, AfterViewInit{
 
   activateDropdown() {
     this.isOpenTemplate5 = !this.isOpenTemplate5
+  }
+  activateDropdownTL5Custom() {
+    this.isOpenTemplate5Custom = !this.isOpenTemplate5Custom
   }
   
   ///** ORTHER FUNCTION *////

@@ -95,6 +95,7 @@ i {
     text-align: center;
     text-transform: uppercase;
     transition: background-color 0.4s;
+    text-wrap: nowrap;
 
     &:hover {
       background-color: #2a2a2a;
@@ -121,10 +122,33 @@ i {
       right: -150%; // Keep the flash outside the button on the right when not hovered
     }
 
-    &--outliner {
+    &--outliner-1 {
+      outline: solid 2px var(--primary-color-1);
+      color: var(--primary-color-1);
+      background-color: transparent;
+      text-wrap: nowrap;
+      &:active {
+        outline: solid 2px var(--primary-color-1);
+      }
+      &:focus {
+        outline: solid 2px var(--primary-color-1);
+      }
+      &:hover {
+        color: white;
+      }
+    }
+
+    &--outliner-2 {
       outline: solid 2px var(--primary-color-2);
       color: var(--primary-color-2);
+      text-wrap: nowrap;
       background-color: transparent;
+      &:active {
+        outline: solid 2px var(--primary-color-2);
+      }
+      &:focus {
+        outline: solid 2px var(--primary-color-2);
+      }
     }
   }
 }
@@ -204,6 +228,10 @@ button {
   border: none;
   outline: none;
   background-color: transparent;
+}
+
+.white {
+  color: var(--primary-color-2) !important;
 }
 
 .offcanvas.offcanvas-end {
